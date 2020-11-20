@@ -134,7 +134,8 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12 noPadding">
-                                        <?php echo form_submit(array('id' =>'photoEmployee', 'name' => 'photoEmployee')) ?>
+                                        <label for="photo">Photo:</label>
+                                        <input type="file" name="photo" id="photo">
                                     </div>
                                 </div>
                             </div>

@@ -27,6 +27,27 @@ class Employee extends CI_Controller
     }
 
     public function employee_form(){
+        
+        //Se configuran los datos de la imagen para la libreria
+        $mi_archivo = 'photo';
+        $config['upload_path'] = "uploads/";
+        $config['file_name'] = "nombre_archivo";
+        $config['allowed_types'] = "*";
+        $config['max_size'] = "50000";
+        $config['max_width'] = "2000";
+        $config['max_height'] = "2000";
+
+        $this->load->library('upload', $config);
+        
+        if (!$this->upload->do_upload($mi_archivo)) {
+            //*** ocurrio un error
+            $data['uploadError'] = $this->upload->display_errors();
+            echo $this->upload->display_errors();
+            return;
+        }
+
+        $data= $this->upload->data('file_path').'/'.$this->upload->data('file_name');
+
         $save=array(
             'name1Employee' =>  $this->input->post('name1Employee'),
             'lastname2Employee' =>  $this->input->post('lastname2Employee'),
@@ -35,7 +56,7 @@ class Employee extends CI_Controller
             'phoneEmployee' =>  $this->input->post('phoneEmployee'),
             'adressEmployee' =>  $this->input->post('adressEmployee'),
             'mailEmployee' =>  $this->input->post('mailEmployee'),
-            'photoEmployee' =>  $this->input->post('photoEmployee'),
+            'photoEmployee' =>  $data,
             'passwordEmployee' =>  $this->input->post('passwordEmployee')
         );
 
