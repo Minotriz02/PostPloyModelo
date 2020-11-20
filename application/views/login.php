@@ -14,10 +14,10 @@
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
     <!-- Black Dashboard CSS -->
-    <link href="<?= base_url()?>/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+    <link href="<?= base_url() ?>/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
 
     <!-- My CSS-->
-    <link href="<?= base_url()?>/css/style.css" rel="stylesheet" />
+    <link href="<?= base_url() ?>/css/style.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -26,19 +26,18 @@
             <div class="row">
                 <div class="col-lg-5">
                     <div class="photo">
-                        <img src="<?= base_url()?>/img/write.jpg" alt="Login Photo">
+                        <img src="<?= base_url() ?>/img/write.jpg" alt="Login Photo">
                     </div>
                 </div>
                 <div class="col-lg-7 login">
                     <h1>Login</h1>
-                    <form method="POST" action="<?php echo site_url('employee/login'); ?>">
+                    <form method="POST" action="" enctype="multipart/form-data">
                         <div class="row prin">
                             <div class="col-lg-6">
                                 <label for="mail">Mail:</label>
                             </div>
                             <div class="col-lg-6 noPadding">
-                                <?php echo form_input(array('id' => 'mailEmployee', 'name' => 'mailEmployee', 'placeholder' => 'mailEmployee', 'size' => 25)); ?>
-                                <!--<input type="text" id="mail" name="mail">-->
+                                <input type="text" id="mailEmployee" name="mailEmployee">
                             </div>
                         </div>
                         <div class="row prin">
@@ -46,20 +45,18 @@
                                 <label for="password">Password:</label>
                             </div>
                             <div class="col-lg-6 noPadding">
-                             <?php echo form_input(array('id' => 'passwordEmployee', 'name' => 'passwordEmployee', 'placeholder' => 'passwordEmployee', 'size' => 25)); ?>
-
-                                <!--<input type="text" id="password" name="password">-->
+                                <input type="text" id="passwordEmployee" name="passwordEmployee">
                             </div>
                         </div>
                         <div class="row prin">
                             <div class="col-lg-12 noPadding center">
-                                <button type="submit" class="btn btn-primary log">Login</button>
+                                <button type="submit" id="employee-submit" name="boton" class="btn btn-primary log">Login</button>
                             </div>
                         </div>
                     </form>
                     <div class="row prin">
                         <div class="col-lg-12 noPadding center">
-                            <a href="<?= base_url()?>index.php/employee/indexReg" class="simple-text logo-normal">
+                            <a href="<?= base_url() ?>index.php/employee/indexReg" class="simple-text logo-normal">
                                 Do you need an account?
                             </a>
                         </div>
@@ -70,16 +67,16 @@
 
     </div>
     <!--   Core JS Files   -->
-    <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-    <script src="assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-    <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <script src="<?= base_url() ?>/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="<?= base_url() ?>/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="<?= base_url() ?>/js/core/bootstrap.min.js" type="text/javascript"></script>
+    <script src="<?= base_url() ?>/js/plugins/perfect-scrollbar.jquery.min.js"></script>
     <!-- Chartist JS -->
-    <script src="../assets/js/plugins/chartjs.min.js"></script>
+    <script src="<?= base_url() ?>/js/plugins/chartjs.min.js"></script>
     <!--  Notifications Plugin    -->
-    <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+    <script src="<?= base_url() ?>/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="../assets/js/black-dashboard.js?v=1.0.0" type="text/javascript"></script>
+    <script src="<?= base_url() ?>/js/black-dashboard.js?v=1.0.0" type="text/javascript"></script>
 </body>
 
 </html>

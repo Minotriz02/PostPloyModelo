@@ -23,46 +23,14 @@ class Employee_model extends CI_Model
     {
         session_start();
 
-        $t=false;
-        $query = $this->db->query("SELECT * FROM employee_accounts WHERE  mailEmployee='$correoF'");
-        $num = $query->num_rows;
+        $this->db->where('mailEmployee',$correoF);
+        $this->db->where('passwordEmployee',$passF);
+        $q=$this->db->get('employee_accounts');
 
-        if ($num > 0) {
-            $row = $query->fetch_assoc(); //Devuelve arreglo con todas las columnas
-            $password_bd = $row['passwordEmployee']; //Se obtiene contraseña de la base de datos
-
-            if ($password_bd == $passF) { //Se compara la contraseña introducida con la contraseña de la base de datos
-
-                //Se setean los valores de la cesión
-                $_SESSION['nombre'] = $row['name1Employee'] . " " . $row['name2Employee'];
-                $_SESSION['correo'] = $row['mailEmployee'];
-
-                $_SESSION['numero'] = $row['phoneEmployee'];
-                $_SESSION['direccion'] = $row['adressEmployee'];
-
-
-                $_SESSION['photo'] = $row['photoEmployee'];
-                $bin = base64_decode($_SESSION['photo']);
-                $im = imageCreateFromString($bin);
-                $img_file = 'assets/img/filename.png';
-                $_SESSION['image'] = imagepng($im, $img_file, 0);
-                //$post_thumbnail_id = get_post_thumbnail_id( $_SESSION['image'] ); 
-                //$url = wp_get_attachment_url( $post_thumbnail_id ); 
-
-                $_SESSION['correo'] = $row['CORREO'];
-
-
-                //header("Location: dashboard.php"); // redirecciona al dashboard al loguearse
-                $t=true;
-
-            } else {
-                echo "La contraseña no coincide";
-                $t=false;
-            }
-        } else {
-            echo "No existe usuario";
-            $t=false;
+        if($q->num_rows()>0){
+            return true;
+        }else{
+            return false;
         }
-        return $t;
     }
 }
