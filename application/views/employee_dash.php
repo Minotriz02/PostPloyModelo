@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,7 +89,7 @@
               <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
-                    <img src="assets/img/james.jpg" alt="Profile Photo">
+                    <img src="<?= base_url()?>img/mike.jpg" alt="Profile Photo">
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
                   <p class="d-lg-none">
@@ -116,7 +120,7 @@
           </div>
           <div class="row">
             <div class="col-lg-4">
-              <img class="circular-square" src="<?php echo $url; ?>" alt="Profile Photo">
+              <img class="circular-square" src="<?= base_url()?>img/mike.jpg" alt="Profile Photo">
             </div>
             <div class="col-lg-4">
               <div class="typography-line">

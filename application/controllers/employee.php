@@ -13,6 +13,15 @@ class Employee extends CI_Controller
 
     public function index()
     {
+        if(isset($_POST['passwordEmployee'])){
+            $this->load->model('employee_model');
+            if($this->employee_model->iniciarSesion($_POST['mailEmployee'],$_POST['passwordEmployee'])){
+                redirect('employee/indexDash');
+            }else{
+                redirect('employee');
+            }
+        }
+        
         $this->load->view('login');
     }
 
@@ -50,10 +59,13 @@ class Employee extends CI_Controller
 
         $t=$this->employee_model->iniciarSesion($correoF, $passF);
 
-        if($t){
+        if($t==true){
             redirect('employee/indexDash');
-        }else{
+            echo '<script> console.log("Entroooooooooooo a iniciar") </script>';
+        }else if($t==false){
             redirect('employee/index');
+            echo '<script> console.log("Entroooooooooooo a iniciar") </script>';
         }
+        echo '<script> console.log("Entroooooooooooo a iniciar") </script>';
     }
 }
