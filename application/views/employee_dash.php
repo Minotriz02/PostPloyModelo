@@ -126,13 +126,13 @@
               <div class="typography-line">
                 <span>Name: </span>
                 <p >
-                <?php echo $_SESSION['nombre']; ?>
+                  David Castro
                 </p>
               </div>
               <div class="typography-line">
                 <span>Phone: </span>
                 <p>
-                <?php echo $_SESSION['numero']; ?>
+                  1234568
                 </p>
               </div>
               <div class="typography-line">
@@ -144,13 +144,13 @@
               <div class="typography-line">
                 <span>Adress: </span>
                 <p>
-                <?php echo $_SESSION['direccion']; ?>
+                  Cra 14# 54-90
                 </p>
               </div>
               <div class="typography-line">
                 <span>Mail: </span>
                 <p>
-                <?php echo $_SESSION['correo']; ?>
+                  dacastro@uao.edu.co
                 </p>
               </div>
             </div>

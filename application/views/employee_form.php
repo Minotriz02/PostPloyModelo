@@ -135,7 +135,7 @@
                                 <div class="row">
                                     <div class="col-lg-12 noPadding">
                                         <label for="photo">Photo:</label>
-                                        <input type="file" name="photo" id="photo">
+                                        <input type="file" class="btn btn-primary" name="photo" id="photo">
                                     </div>
                                 </div>
                             </div>
