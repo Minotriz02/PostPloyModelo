@@ -13,7 +13,7 @@ class Employee_model extends CI_Model
         return $idEmployee;
     }
 
-    public function getPost($id){
+    public function getEmployee($id){
         $this->db->where('idAccountEmployee',$id);
         $query= $this->db->get('employee_view');
         return $query->result();

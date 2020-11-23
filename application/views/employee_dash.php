@@ -216,11 +216,12 @@
                 <div class="table-full-width table-responsive">
                   <table class="table">
                     <tbody>
+                    
                       <tr>
                         <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
+                          <div class="form-check ">
+                            <label class="form-check-label" >
+                              <input class="form-check-output" type="checkbox" checked disabled>
                               <span class="form-check-sign">
                                 <span class="check"></span>
                               </span>
@@ -233,117 +234,6 @@
                         </td>
                       </tr>
                       <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value=""checked="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Paint a house</p>
-                          <p class="text-muted">Carl Jhonson, job's description</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Paint a house</p>
-                          <p class="text-muted">Carl Jhonson, job's description</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Paint a house</p>
-                          <p class="text-muted">Carl Jhonson, job's description</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Paint a house</p>
-                          <p class="text-muted">Carl Jhonson, job's description</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Paint a house</p>
-                          <p class="text-muted">Carl Jhonson, job's description</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Paint a house</p>
-                          <p class="text-muted">Carl Jhonson, job's description</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Paint a house</p>
-                          <p class="text-muted">Carl Jhonson, job's description</p>
-                        </td>
-                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -377,105 +267,27 @@
                       </tr>
                     </thead>
                     <tbody>
+                    <?php
+                            foreach($trabajohecho as $jdone){ ?>
                       <tr>
                         <td>
-                          Clean a house
+                             <?php echo $jdone->titleJob;?>
                         </td>
+                        
                         <td>
-                          Clean
+                        <?php 
+                            echo $jdone->nameCategory;
+                        ?>
                         </td>
+
                         <td>
-                          Job's description
+                        <?php echo $jdone->descriptionJob;?>
                         </td>
                         <td class="text-center">
-                          15000 COP
+                          <?php echo $jdone->payForJob;?>
                         </td>
                       </tr>
-                      <tr>
-                        <td>
-                          Clean a house
-                        </td>
-                        <td>
-                          Clean
-                        </td>
-                        <td>
-                          Job's description
-                        </td>
-                        <td class="text-center">
-                          15000 COP
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Clean a house
-                        </td>
-                        <td>
-                          Clean
-                        </td>
-                        <td>
-                          Job's description
-                        </td>
-                        <td class="text-center">
-                          15000 COP
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Clean a house
-                        </td>
-                        <td>
-                          Clean
-                        </td>
-                        <td>
-                          Job's description
-                        </td>
-                        <td class="text-center">
-                          15000 COP
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Clean a house
-                        </td>
-                        <td>
-                          Clean
-                        </td>
-                        <td>
-                          Job's description
-                        </td>
-                        <td class="text-center">
-                          15000 COP
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Clean a house
-                        </td>
-                        <td>
-                          Clean
-                        </td>
-                        <td>
-                          Job's description
-                        </td>
-                        <td class="text-center">
-                          15000 COP
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Clean a house
-                        </td>
-                        <td>
-                          Clean
-                        </td>
-                        <td>
-                          Job's description
-                        </td>
-                        <td class="text-center">
-                          15000 COP
-                        </td>
-                      </tr>
-                    
+                    <?php }?>
                     </tbody>
                   </table>
                 </div>

@@ -8,13 +8,15 @@ class Employee extends CI_Controller
         parent::__construct();
         $this->load->model("employee_model");
         $this->load->helper(array('form', 'url'));
-    }
+    }   
 
     public function index()
     {
         if(isset($_POST['passwordEmployee'])){
             $this->load->model('employee_model');
+            
             $q = $this->employee_model->iniciarSesion($_POST['mailEmployee'],$_POST['passwordEmployee']);
+            
             if($q->num_rows()>0){
                 $resultado = $q->result();
                 foreach($resultado as $emp){
@@ -37,19 +39,26 @@ class Employee extends CI_Controller
 
     public function indexDash($id_usu)
     {
-        $employee=$this->employee_model->getPost($id_usu);
-        $this->load->view('employee_dash',compact('employee'));
+        $this->load->model('jobdone_model');
+        //$trabajohecho=$this->jobdone_model->getJobsDone($id_usu);
+        //$employee=$this->employee_model->getEmployee($id_usu);
+        $data=array(
+            'employee' => $this->employee_model->getEmployee($id_usu),
+            'trabajohecho' => $this->jobdone_model->getJobsDone($id_usu)
+        );
+        //$this->load->view('employee_dash',compact('employee'));
+        $this->load->view('employee_dash',$data);
     }
 
     public function indexOffer($id_usu)
     {
-        $employee=$this->employee_model->getPost($id_usu);
+        $employee=$this->employee_model->getEmployee($id_usu);
         $this->load->view('job_Offers',compact('employee'));
     }
 
     public function indexUser($id_usu)
     {
-        $employee=$this->employee_model->getPost($id_usu);
+        $employee=$this->employee_model->getEmployee($id_usu);
         $this->load->view('employee_user',compact('employee'));
     }
     
@@ -96,7 +105,6 @@ class Employee extends CI_Controller
     public function login(){
         $correoF = $this->input->post('mailEmployee');
         $passF =  $this->input->post('passwordEmployee');
-        $this->employee_model->consultarEmployee($correoF);
         $t=$this->employee_model->iniciarSesion($correoF, $passF);
 
         if($t==true){
