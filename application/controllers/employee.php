@@ -1,8 +1,8 @@
 <?php
 defined("BASEPATH") or exit('No direct script acces allowed');
-$usu_login = "";
 class Employee extends CI_Controller
 {
+    
     public function __construct()
     {
         parent::__construct();
@@ -16,8 +16,12 @@ class Employee extends CI_Controller
             $this->load->model('employee_model');
             $q = $this->employee_model->iniciarSesion($_POST['mailEmployee'],$_POST['passwordEmployee']);
             if($q->num_rows()>0){
-                 $usu_login = $q->result();
-                redirect('employee/indexDash');
+                $resultado = $q->result();
+                foreach($resultado as $emp){
+                    echo $emp->idAccountEmployee;
+                    redirect('employee/indexDash/'.$emp->idAccountEmployee);
+
+                }  
             }else{
                 redirect('employee');
             }
@@ -31,11 +35,11 @@ class Employee extends CI_Controller
         $this->load->view('employee_form');
     }
 
-    public function indexDash()
+    public function indexDash($id_usu)
     {
         //$result=$this->db->get('employee_view');
         //$data=array('consulta'=>$result);
-        $employee=$this->employee_model->getPost();
+        $employee=$this->employee_model->getPost($id_usu);
         $this->load->view('employee_dash',compact('employee'));
     }
 

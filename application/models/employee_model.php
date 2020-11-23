@@ -13,8 +13,8 @@ class Employee_model extends CI_Model
         return $idEmployee;
     }
 
-    public function getPost(){
-        $this->db->where('idAccountEmployee',26);
+    public function getPost($id){
+        $this->db->where('idAccountEmployee',$id);
         $query= $this->db->get('employee_view');
         return $query->result();
     }
@@ -27,17 +27,17 @@ class Employee_model extends CI_Model
         $this->db->where('mailEmployee',$correoF);
         $this->db->where('passwordEmployee',$passF);
         $q=$this->db->get('employee_accounts');
-        $resultado=$q->result();
-        foreach($resultado as $ide){
-            $ide->idAccountEmployee;
-        }
+        //$resultado=$q->result();
+        //foreach($resultado as $ide){
+        //    $ide->idAccountEmployee;
+        //}
 
         //$this->employee->getPost($ide);
 
         if($q->num_rows()>0){
             return $q;
         }else{
-            return false;
+            return $q;
         }
     }
 }
