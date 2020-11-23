@@ -14,7 +14,7 @@ class Employee_model extends CI_Model
     }
 
     public function getPost(){
-        $this->db->where('idAccountEmployee',35);
+        $this->db->where('idAccountEmployee',26);
         $query= $this->db->get('employee_view');
         return $query->result();
     }
@@ -35,7 +35,7 @@ class Employee_model extends CI_Model
         //$this->employee->getPost($ide);
 
         if($q->num_rows()>0){
-            return true;
+            return $q;
         }else{
             return false;
         }

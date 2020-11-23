@@ -1,9 +1,8 @@
 <?php
 defined("BASEPATH") or exit('No direct script acces allowed');
-
+$usu_login = "";
 class Employee extends CI_Controller
 {
-
     public function __construct()
     {
         parent::__construct();
@@ -15,7 +14,9 @@ class Employee extends CI_Controller
     {
         if(isset($_POST['passwordEmployee'])){
             $this->load->model('employee_model');
-            if($this->employee_model->iniciarSesion($_POST['mailEmployee'],$_POST['passwordEmployee'])){
+            $q = $this->employee_model->iniciarSesion($_POST['mailEmployee'],$_POST['passwordEmployee']);
+            if($q->num_rows()>0){
+                 $usu_login = $q->result();
                 redirect('employee/indexDash');
             }else{
                 redirect('employee');
@@ -43,6 +44,7 @@ class Employee extends CI_Controller
         //Se configuran los datos de la imagen para la libreria
         $mi_archivo = 'photo';
         $config['upload_path'] = "uploads/";
+        $config['file_path'] = "uploads/";
         $config['file_name'] = "nombre_archivo";
         $config['allowed_types'] = "*";
         $config['max_size'] = "50000";
@@ -58,7 +60,7 @@ class Employee extends CI_Controller
             return;
         }
 
-        $data= $this->upload->data('upload_path').$this->upload->data('file_name');
+        $data= "uploads/".$this->upload->data('file_name');
 
         $save=array(
             'name1Employee' =>  $this->input->post('name1Employee'),
