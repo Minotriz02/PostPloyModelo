@@ -39,25 +39,28 @@
         </div>
         <ul class="nav">
           <li class="active ">
-            <a href="./dashboard.php">
+            <a href="<?= base_url()?>index.php/employee/indexDash/<?php foreach($employee as $emp){
+                                                                            echo $emp->idAccountEmployee;
+                                                                          }
+                                                                    ?>">
               <i class="tim-icons icon-chart-pie-36"></i>
               <p>Postploy</p>
             </a>
           </li>
           <li>
-            <a href="./jobOffers.php">
+            <a href="<?= base_url()?>index.php/employee/indexOffer/<?php foreach($employee as $emp){
+                                                                            echo $emp->idAccountEmployee;
+                                                                          }
+                                                                    ?>">
               <i class="tim-icons icon-paper"></i>
               <p>Job offers</p>
             </a>
           </li>
           <li>
-            <a href="./myJobs.php">
-              <i class="tim-icons icon-single-copy-04"></i>
-              <p>My jobs</p>
-            </a>
-          </li>
-          <li>
-            <a href="./user.php">
+            <a href="<?= base_url()?>index.php/employee/indexUser/<?php foreach($employee as $emp){
+                                                                            echo $emp->idAccountEmployee;
+                                                                          }
+                                                                    ?>">
               <i class="tim-icons icon-single-02"></i>
               <p>User Profile</p>
             </a>
@@ -89,7 +92,12 @@
               <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
-                    <img src="<?= base_url()?>img/mike.jpg" alt="Profile Photo">
+                    <img src="<?= base_url()?><?php
+                                                foreach($employee as $emp){
+                                                  echo $emp->photoEmployee;
+                                                }
+                                              ?>" 
+                    alt="Profile Photo">
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
                   <p class="d-lg-none">
@@ -497,20 +505,17 @@
     </div>
   </div>
   <!--   Core JS Files   -->
-  <script src="assets/js/core/jquery.min.js"></script>
-  <script src="assets/js/core/popper.min.js"></script>
-  <script src="assets/js/core/bootstrap.min.js"></script>
-  <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <!-- Place this tag in your head or just before your close body tag. -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <script src="<?= base_url()?>/js/core/jquery.min.js"></script>
+  <script src="<?= base_url()?>/js/core/popper.min.js"></script>
+  <script src="<?= base_url()?>/js/core/bootstrap.min.js"></script>
+  <script src="<?= base_url()?>/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!-- Chart JS -->
-  <script src="assets/js/plugins/chartjs.min.js"></script>
+  <script src="<?= base_url()?>/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
-  <script src="assets/js/plugins/bootstrap-notify.js"></script>
+  <script src="<?= base_url()?>/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="assets/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
-  <script src="assets/demo/demo.js"></script>
+  <script src="<?= base_url()?>/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
+  <script src="<?= base_url()?>/demo/demo.js"></script>
   <script>
     $(document).ready(function() {
       $().ready(function() {

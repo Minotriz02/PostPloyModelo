@@ -37,12 +37,22 @@ class Employee extends CI_Controller
 
     public function indexDash($id_usu)
     {
-        //$result=$this->db->get('employee_view');
-        //$data=array('consulta'=>$result);
         $employee=$this->employee_model->getPost($id_usu);
         $this->load->view('employee_dash',compact('employee'));
     }
 
+    public function indexOffer($id_usu)
+    {
+        $employee=$this->employee_model->getPost($id_usu);
+        $this->load->view('job_Offers',compact('employee'));
+    }
+
+    public function indexUser($id_usu)
+    {
+        $employee=$this->employee_model->getPost($id_usu);
+        $this->load->view('employee_user',compact('employee'));
+    }
+    
     public function employee_form(){
         
         //Se configuran los datos de la imagen para la libreria
