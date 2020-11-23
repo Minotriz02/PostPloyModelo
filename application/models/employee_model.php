@@ -13,11 +13,12 @@ class Employee_model extends CI_Model
         return $idEmployee;
     }
 
-    public function consultarEmployee()
-    {
-        $query = $this->db->query("Select * from employee_accounts");
+    public function getPost(){
+        $this->db->where('idAccountEmployee',35);
+        $query= $this->db->get('employee_view');
         return $query->result();
     }
+
 
     public function iniciarSesion($correoF, $passF)
     {
@@ -26,6 +27,12 @@ class Employee_model extends CI_Model
         $this->db->where('mailEmployee',$correoF);
         $this->db->where('passwordEmployee',$passF);
         $q=$this->db->get('employee_accounts');
+        $resultado=$q->result();
+        foreach($resultado as $ide){
+            $ide->idAccountEmployee;
+        }
+
+        //$this->employee->getPost($ide);
 
         if($q->num_rows()>0){
             return true;

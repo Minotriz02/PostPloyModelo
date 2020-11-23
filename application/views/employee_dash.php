@@ -120,19 +120,30 @@
           </div>
           <div class="row">
             <div class="col-lg-4">
-              <img class="circular-square" src="<?= base_url()?>img/mike.jpg" alt="Profile Photo">
+              <img class="circular-square" src="<?= base_url()?><?php
+                foreach($employee as $emp){
+                  echo $emp->photoEmployee;
+                }?>" alt="Profile Photo">
             </div>
             <div class="col-lg-4">
               <div class="typography-line">
+                
                 <span>Name: </span>
                 <p >
-                  David Castro
+                <?php
+                foreach($employee as $emp){
+                  echo $emp->name1Employee;
+                }?>
                 </p>
               </div>
               <div class="typography-line">
+                
                 <span>Phone: </span>
                 <p>
-                  1234568
+                <?php
+                foreach($employee as $emp){
+                  echo $emp->phoneEmployee;
+                }?>
                 </p>
               </div>
               <div class="typography-line">
@@ -144,13 +155,19 @@
               <div class="typography-line">
                 <span>Adress: </span>
                 <p>
-                  Cra 14# 54-90
+                <?php
+                foreach($employee as $emp){
+                  echo $emp->adressEmployee;
+                }?>
                 </p>
               </div>
               <div class="typography-line">
                 <span>Mail: </span>
                 <p>
-                  dacastro@uao.edu.co
+                <?php
+                foreach($employee as $emp){
+                  echo $emp->mailEmployee;
+                }?>
                 </p>
               </div>
             </div>
@@ -173,6 +190,9 @@
                   22
                 </p>
               </div>
+              <?php
+                
+              ?>
             </div>
           </div>
         </div>

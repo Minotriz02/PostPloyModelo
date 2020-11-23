@@ -32,7 +32,10 @@ class Employee extends CI_Controller
 
     public function indexDash()
     {
-        $this->load->view('employee_dash');
+        //$result=$this->db->get('employee_view');
+        //$data=array('consulta'=>$result);
+        $employee=$this->employee_model->getPost();
+        $this->load->view('employee_dash',compact('employee'));
     }
 
     public function employee_form(){
@@ -55,7 +58,7 @@ class Employee extends CI_Controller
             return;
         }
 
-        $data= $this->upload->data('file_path').'/'.$this->upload->data('file_name');
+        $data= $this->upload->data('upload_path').$this->upload->data('file_name');
 
         $save=array(
             'name1Employee' =>  $this->input->post('name1Employee'),
@@ -77,7 +80,7 @@ class Employee extends CI_Controller
     public function login(){
         $correoF = $this->input->post('mailEmployee');
         $passF =  $this->input->post('passwordEmployee');
-
+        $this->employee_model->consultarEmployee($correoF);
         $t=$this->employee_model->iniciarSesion($correoF, $passF);
 
         if($t==true){
