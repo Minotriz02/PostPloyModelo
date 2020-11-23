@@ -49,6 +49,16 @@
                             </div>
                         </div>
                         <div class="row prin">
+                            <div class="col-lg-6 noPadding">
+                                <input type="radio" id="employer" name="role" value="Employer">
+                                <label for="employer" class="Option">Employer</label>
+                            </div>
+                            <div class="col-lg-6 noPadding">
+                                <input type="radio" id="employee" name="role" value="Employee">
+                                <label for="employee" class="Option">Employee</label>
+                            </div>
+                        </div>
+                        <div class="row prin">
                             <div class="col-lg-12 noPadding center">
                                 <button type="submit" id="employee-submit" name="boton" class="btn btn-primary log">Login</button>
                             </div>

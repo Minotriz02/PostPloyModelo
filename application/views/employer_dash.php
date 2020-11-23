@@ -39,8 +39,8 @@
         </div>
         <ul class="nav">
           <li class="active ">
-            <a href="<?= base_url()?>index.php/employee/indexDash/<?php foreach($employee as $emp){
-                                                                            echo $emp->idAccountEmployee;
+            <a href="<?= base_url()?>index.php/employer/indexDash/<?php foreach($employer as $emp){
+                                                                            echo $emp->idCEmployerAccount ;
                                                                           }
                                                                     ?>">
               <i class="tim-icons icon-chart-pie-36"></i>
@@ -48,17 +48,17 @@
             </a>
           </li>
           <li>
-            <a href="<?= base_url()?>index.php/employee/indexOffer/<?php foreach($employee as $emp){
-                                                                            echo $emp->idAccountEmployee;
+            <a href="<?= base_url()?>index.php/employer/indexMyJobs/<?php foreach($employer as $emp){
+                                                                            echo $emp->idCEmployerAccount ;
                                                                           }
                                                                     ?>">
-              <i class="tim-icons icon-paper"></i>
-              <p>Job offers</p>
+              <i class="tim-icons icon-single-copy-04"></i>
+              <p>My jobs</p>
             </a>
           </li>
           <li>
-            <a href="<?= base_url()?>index.php/employee/indexUser/<?php foreach($employee as $emp){
-                                                                            echo $emp->idAccountEmployee;
+            <a href="<?= base_url()?>index.php/employer/indexUser/<?php foreach($employer as $emp){
+                                                                            echo $emp->idCEmployerAccount ;
                                                                           }
                                                                     ?>">
               <i class="tim-icons icon-single-02"></i>
@@ -93,8 +93,8 @@
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
                     <img src="<?= base_url()?><?php
-                                                foreach($employee as $emp){
-                                                  echo $emp->photoEmployee;
+                                                foreach($employer as $emp){
+                                                  echo $emp->photoEmployer;
                                                 }
                                               ?>" 
                     alt="Profile Photo">
@@ -105,12 +105,12 @@
                   </p>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
-                  <li class="nav-link"><a href="<?= base_url()?>index.php/employee/indexUser/<?php foreach($employee as $emp){
-                                                                            echo $emp->idAccountEmployee;
+                  <li class="nav-link"><a href="<?= base_url()?>index.php/employer/indexUser/<?php foreach($employer as $emp){
+                                                                            echo $emp->idCEmployerAccount ;
                                                                           }
                                                                     ?>" class="nav-item dropdown-item">Profile</a></li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-link"><a href="<?= base_url()?>index.php/employee/salirSesion" class="nav-item dropdown-item">Log out</a></li>
+                  <li class="nav-link"><a href="<?= base_url()?>index.php/employer/salirSesion" class="nav-item dropdown-item">Log out</a></li>
                 </ul>
               </li>
               <li class="separator d-lg-none"></li>
@@ -132,8 +132,8 @@
           <div class="row">
             <div class="col-lg-4">
               <img class="circular-square" src="<?= base_url()?><?php
-                foreach($employee as $emp){
-                  echo $emp->photoEmployee;
+                foreach($employer as $emp){
+                  echo $emp->photoEmployer;
                 }?>" alt="Profile Photo">
             </div>
             <div class="col-lg-4">
@@ -142,8 +142,8 @@
                 <span>Name: </span>
                 <p >
                 <?php
-                foreach($employee as $emp){
-                  echo $emp->name1Employee;
+                foreach($employer as $emp){
+                  echo $emp->name1Employer;
                 }?>
                 </p>
               </div>
@@ -152,8 +152,8 @@
                 <span>Phone: </span>
                 <p>
                 <?php
-                foreach($employee as $emp){
-                  echo $emp->phoneEmployee;
+                foreach($employer as $emp){
+                  echo $emp->phoneEmployer;
                 }?>
                 </p>
               </div>
@@ -167,8 +167,8 @@
                 <span>Adress: </span>
                 <p>
                 <?php
-                foreach($employee as $emp){
-                  echo $emp->adressEmployee;
+                foreach($employer as $emp){
+                  echo $emp->adressEmployer;
                 }?>
                 </p>
               </div>
@@ -176,8 +176,8 @@
                 <span>Mail: </span>
                 <p>
                 <?php
-                foreach($employee as $emp){
-                  echo $emp->mailEmployee;
+                foreach($employer as $emp){
+                  echo $emp->mailEmployer;
                 }?>
                 </p>
               </div>
