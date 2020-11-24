@@ -24,19 +24,13 @@ class Employee_model extends CI_Model
     {
         session_start();
 
-        $this->db->where('mailEmployee',$correoF);
-        $this->db->where('passwordEmployee',$passF);
-        $q=$this->db->get('employee_accounts');
-        //$resultado=$q->result();
-        //foreach($resultado as $ide){
-        //    $ide->idAccountEmployee;
-        //}
+        $this->db->where('mailEmployee', $correoF);
+        $this->db->where('passwordEmployee', $passF);
+        $q = $this->db->get('employee_accounts');
 
-        //$this->employee->getPost($ide);
-
-        if($q->num_rows()>0){
+        if ($q->num_rows() > 0) {
             return $q;
-        }else{
+        } else {
             return $q;
         }
     }

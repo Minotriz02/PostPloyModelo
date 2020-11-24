@@ -1,7 +1,3 @@
-<?php
-  session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +7,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <title>
-    Postploy
+    User Profile
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
@@ -38,9 +34,9 @@
           </a>
         </div>
         <ul class="nav">
-          <li class="active ">
-            <a href="<?= base_url()?>index.php/employee/indexDash/<?php foreach($employee as $emp){
-                                                                            echo $emp->idAccountEmployee;
+          <li>
+            <a href="<?= base_url()?>index.php/employer/indexDash/<?php foreach($employer as $emp){
+                                                                            echo $emp->idCEmployerAccount;
                                                                           }
                                                                     ?>">
               <i class="tim-icons icon-chart-pie-36"></i>
@@ -48,17 +44,17 @@
             </a>
           </li>
           <li>
-            <a href="<?= base_url()?>index.php/employee/indexOffer/<?php foreach($employee as $emp){
-                                                                            echo $emp->idAccountEmployee;
+            <a href="<?= base_url()?>index.php/employer/indexMyJobs/<?php foreach($employer as $emp){
+                                                                            echo $emp->idCEmployerAccount;
                                                                           }
                                                                     ?>">
-              <i class="tim-icons icon-paper"></i>
-              <p>Job offers</p>
+              <i class="tim-icons icon-single-copy-04"></i>
+              <p>My Jobs</p>
             </a>
           </li>
-          <li>
-            <a href="<?= base_url()?>index.php/employee/indexUser/<?php foreach($employee as $emp){
-                                                                            echo $emp->idAccountEmployee;
+          <li class="active ">
+            <a href="<?= base_url()?>index.php/employer/indexUser/<?php foreach($employer as $emp){
+                                                                            echo $emp->idCEmployerAccount;
                                                                           }
                                                                     ?>">
               <i class="tim-icons icon-single-02"></i>
@@ -80,7 +76,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="javascript:void(0)">Postploy</a>
+            <a class="navbar-brand" href="javascript:void(0)">User Profile</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -93,11 +89,10 @@
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
                     <img src="<?= base_url()?><?php
-                                                foreach($employee as $emp){
-                                                  echo $emp->photoEmployee;
+                                                foreach($employer as $emp){
+                                                  echo $emp->photoEmployer;
                                                 }
-                                              ?>" 
-                    alt="Profile Photo">
+                                              ?>" alt="Profile Photo">
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
                   <p class="d-lg-none">
@@ -105,12 +100,12 @@
                   </p>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
-                  <li class="nav-link"><a href="<?= base_url()?>index.php/employee/indexUser/<?php foreach($employee as $emp){
-                                                                            echo $emp->idAccountEmployee;
+                  <li class="nav-link"><a href="<?= base_url()?>index.php/employer/indexUser/<?php foreach($employer as $emp){
+                                                                            echo $emp->idCEmployerAccount ;
                                                                           }
                                                                     ?>" class="nav-item dropdown-item">Profile</a></li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-link"><a href="<?= base_url()?>index.php/employee/salirSesion" class="nav-item dropdown-item">Log out</a></li>
+                  <li class="nav-link"><a href="<?= base_url()?>index.php/employer/salirSesion" class="nav-item dropdown-item">Log out</a></li>
                 </ul>
               </li>
               <li class="separator d-lg-none"></li>
@@ -118,186 +113,126 @@
           </div>
         </div>
       </nav>
-      
+     
       <!-- End Navbar -->
-      
       <div class="content">
-        <!-- Inicio Usuario -->
-        <div class="usuario">
-          <div class="row">
-            <div class="col-lg-12">
-              <h3 class="card-category">User resume</h3>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-4">
-              <img class="circular-square" src="<?= base_url()?><?php
-                foreach($employee as $emp){
-                  echo $emp->photoEmployee;
-                }?>" alt="Profile Photo">
-            </div>
-            <div class="col-lg-4">
-              <div class="typography-line">
-                
-                <span>Name: </span>
-                <p >
-                <?php
-                foreach($employee as $emp){
-                  echo $emp->name1Employee;
-                }?>
-                </p>
-              </div>
-              <div class="typography-line">
-                
-                <span>Phone: </span>
-                <p>
-                <?php
-                foreach($employee as $emp){
-                  echo $emp->phoneEmployee;
-                }?>
-                </p>
-              </div>
-              <div class="typography-line">
-                <span>Jobs done: </span>
-                <p>
-                  10
-                </p>
-              </div>
-              <div class="typography-line">
-                <span>Adress: </span>
-                <p>
-                <?php
-                foreach($employee as $emp){
-                  echo $emp->adressEmployee;
-                }?>
-                </p>
-              </div>
-              <div class="typography-line">
-                <span>Mail: </span>
-                <p>
-                <?php
-                foreach($employee as $emp){
-                  echo $emp->mailEmployee;
-                }?>
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="typography-line">
-                <span>City: </span>
-                <p>
-                  Cali
-                </p>
-              </div>
-              <div class="typography-line">
-                <span>Ranking: </span>
-                <p >
-                  3.7
-                </p>
-              </div>
-              <div class="typography-line">
-                <span>Age: </span>
-                <p >
-                  22
-                </p>
-              </div>
-              <?php
-                
-              ?>
-            </div>
-          </div>
-        </div>
-        <!-- Fin Usuario -->
         <div class="row">
-          <!--Trabajos hechos -->
-          <div class="col-lg-6 col-md-12">
-            <div class="card card-tasks">
-              <div class="card-header ">
-                <h6 class="title d-inline">Waiting jobs</h6>     
-              </div>
-              <div class="card-body ">
-                <div class="table-full-width table-responsive">
-                  <table class="table">
-                    <tbody>
-                    
-                      <tr>
-                        <td>
-                          <div class="form-check ">
-                            <label class="form-check-label" >
-                              <input class="form-check-output" type="checkbox" checked disabled>
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Paint a house</p>
-                          <p class="text-muted">Carl Jhonson, job's description</p>
-                        </td>
-                      </tr>
-                      <tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--Fin Trabajos hechos -->
-          <!--Inicio Trabajos aplicados-->
-          <div class="col-lg-6 col-md-12">
-            <div class="card ">
+          <div class="col-md-8">
+            <div class="card">
               <div class="card-header">
-                <h4 class="card-title"> Jobs done</h4>
+                <h5 class="title">Edit Profile</h5>
               </div>
               <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table tablesorter " id="">
-                    <thead class=" text-primary">
-                      <tr>
-                        <th>
-                          Title job
-                        </th>
-                        <th>
-                          Category
-                        </th>
-                        <th>
-                          Description
-                        </th>
-                        <th class="text-center">
-                          Salary
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                            foreach($trabajohecho as $jdone){ ?>
-                      <tr>
-                        <td>
-                             <?php echo $jdone->titleJob;?>
-                        </td>
-                        
-                        <td>
-                        <?php 
-                            echo $jdone->nameCategory;
-                        ?>
-                        </td>
-
-                        <td>
-                        <?php echo $jdone->descriptionJob;?>
-                        </td>
-                        <td class="text-center">
-                          <?php echo $jdone->payForJob;?>
-                        </td>
-                      </tr>
-                    <?php }?>
-                    </tbody>
-                  </table>
-                </div>
+                <form>
+                  <div class="row">
+                    <div class="col-md-3 pr-md-1">
+                      <div class="form-group">
+                        <label>First name</label>
+                        <input type="text" class="form-control" value="<?php
+                                                                            foreach($employer as $emp){
+                                                                            echo $emp->name1Employer;
+                                                                        }?>">
+                      </div>
+                    </div>
+                    <div class="col-md-3 px-md-1">
+                      <div class="form-group">
+                        <label>Second name</label>
+                        <input type="text" class="form-control" value="<?php
+                                                                            foreach($employer as $emp){
+                                                                            echo $emp->name2Employer;
+                                                                        }?>">
+                      </div>
+                    </div>
+                    <div class="col-md-3 pl-md-1">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">First lastname</label>
+                        <input type="email" class="form-control" value="<?php
+                                                                            foreach($employer as $emp){
+                                                                            echo $emp->lastname1Employer;
+                                                                        }?>">
+                      </div>
+                    </div>
+                    <div class="col-md-3 pl-md-1">
+                      <div class="form-group">
+                        <label>Second lastname</label>
+                        <input type="text" class="form-control" value="<?php
+                                                                            foreach($employer as $emp){
+                                                                            echo $emp->lastname2Employer;
+                                                                        }?>">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-md-1">
+                      <div class="form-group">
+                        <label>Phone number</label>
+                        <input type="text" class="form-control" value="<?php
+                                                                            foreach($employer as $emp){
+                                                                            echo $emp->phoneEmployer;
+                                                                        }?>">
+                      </div>
+                    </div>
+                    <div class="col-md-6 pl-md-1">
+                      <div class="form-group">
+                        <label>Adress</label>
+                        <input type="text" class="form-control" value="<?php
+                                                                            foreach($employer as $emp){
+                                                                            echo $emp->adressEmployer;
+                                                                        }?>">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-md-1">
+                      <div class="form-group">
+                        <label>Mail</label>
+                        <input type="text" class="form-control" value="<?php
+                                                                            foreach($employer as $emp){
+                                                                            echo $emp->mailEmployer;
+                                                                        }?>">
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="card-footer">
+                <button type="submit" class="btn btn-fill btn-primary" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);">Save</button>
               </div>
             </div>
           </div>
-          <!--Fin Trabajos aplicados-->
+          <div class="col-md-4">
+            <div class="card card-user">
+              <div class="card-body">
+                <p class="card-text">
+                  <div class="author">
+                    <div class="block block-one" style="background: linear-gradient(to right, #4a40d8c7 0%, #4a40d852 100%);"></div>
+                    <div class="block block-two" style="background: linear-gradient(to right, #4a40d8c7 0%, #4a40d852 100%);"></div>
+                    <div class="block block-three" style="background: linear-gradient(to right, #4a40d8c7 0%, #4a40d852 100%);"></div>
+                    <div class="block block-four" style="background: linear-gradient(to right, #4a40d8c7 0%, #4a40d852 100%);"></div>
+                    <a href="javascript:void(0)">
+                      <img class="avatar" src="<?= base_url()?><?php
+                                                foreach($employer as $emp){
+                                                  echo $emp->photoEmployer;
+                                                }
+                                              ?>" alt="...">
+                      <h5 class="title">
+                            <?php
+                                foreach($employer as $emp){
+                                echo $emp->name1Employer." ";
+                                echo $emp->name2Employer." ";
+                                echo $emp->lastname1Employer." ";
+                                echo $emp->lastname2Employer;
+                            }?>
+                        </h5>
+                    </a>
+                    <p class="description">
+                      Employee
+                    </p>
+                  </div>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <footer class="footer">
@@ -318,6 +253,8 @@
         </div>
       </footer>
     </div>
+
+
   </div>
   <!--   Core JS Files   -->
   <script src="<?= base_url()?>/js/core/jquery.min.js"></script>
@@ -440,13 +377,6 @@
           $('body').removeClass('white-content');
         });
       });
-    });
-  </script>
-  <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/js/demos.js
-      demo.initDashboardPageCharts();
-
     });
   </script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
