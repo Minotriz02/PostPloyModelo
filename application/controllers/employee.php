@@ -15,6 +15,7 @@ class Employee extends CI_Controller
         if (isset($_POST['passwordEmployee'])) {
             $option = null;
             $this->load->model('employee_model');
+            $this->load->model('employer_model');
             if ($_POST['role'] == 'Employer') {
                 $option = 1;
             } else if ($_POST['role'] == 'Employee') {
@@ -77,6 +78,11 @@ class Employee extends CI_Controller
     {
         $employee=$this->employee_model->getEmployee($id_usu);
         $this->load->view('employee_user',compact('employee'));
+    }
+
+    public function salirSesion()
+    {
+        $this->load->view('logout');
     }
 
     public function employee_form()

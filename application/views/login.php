@@ -45,12 +45,12 @@
                                 <label for="password">Password:</label>
                             </div>
                             <div class="col-lg-6 noPadding">
-                                <input type="text" id="passwordEmployee" name="passwordEmployee">
+                                <input class="password" type="password" id="passwordEmployee" name="passwordEmployee">
                             </div>
                         </div>
                         <div class="row prin">
                             <div class="col-lg-6 noPadding">
-                                <input type="radio" id="employer" name="role" value="Employer">
+                                <input type="radio" id="employer" name="role" value="Employer" checked>
                                 <label for="employer" class="Option">Employer</label>
                             </div>
                             <div class="col-lg-6 noPadding">
