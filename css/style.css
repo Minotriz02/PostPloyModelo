@@ -31,7 +31,7 @@ input[type=text] {
     font-size: 20px;
 }
 
-.passwordEmployee {
+#passwordEmployee {
     border: none;
     border-radius: 9px;
     background: #7C7E97;
