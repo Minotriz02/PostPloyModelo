@@ -35,28 +35,28 @@
                 </div>
                 <ul class="nav">
                     <li>
-                        <a href="<?= base_url()?>index.php/employee/indexDash/<?php foreach($employee as $emp){
-                                                                            echo $emp->idAccountEmployee;
-                                                                          }
-                                                                    ?>">
+                        <a href="<?= base_url() ?>index.php/employee/indexDash/<?php foreach ($employee as $emp) {
+                                                                                    echo $emp->idAccountEmployee;
+                                                                                }
+                                                                                ?>">
                             <i class="tim-icons icon-chart-pie-36"></i>
                             <p>Postploy</p>
                         </a>
                     </li>
                     <li class="active ">
-                        <a href="<?= base_url()?>index.php/job_offer/indexOffer/<?php foreach($employee as $emp){
-                                                                            echo $emp->idAccountEmployee;
-                                                                          }
-                                                                    ?>">
+                        <a href="<?= base_url() ?>index.php/job_offer/indexOffer/<?php foreach ($employee as $emp) {
+                                                                                        echo $emp->idAccountEmployee;
+                                                                                    }
+                                                                                    ?>">
                             <i class="tim-icons icon-paper"></i>
                             <p>Job offers</p>
                         </a>
                     </li>
                     <li>
-                        <a href="<?= base_url()?>index.php/employee/indexUser/<?php foreach($employee as $emp){
-                                                                            echo $emp->idAccountEmployee;
-                                                                          }
-                                                                    ?>">
+                        <a href="<?= base_url() ?>index.php/employee/indexUser/<?php foreach ($employee as $emp) {
+                                                                                    echo $emp->idAccountEmployee;
+                                                                                }
+                                                                                ?>">
                             <i class="tim-icons icon-single-02"></i>
                             <p>User Profile</p>
                         </a>
@@ -88,12 +88,11 @@
                             <li class="dropdown nav-item">
                                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                     <div class="photo">
-                                        <img src="<?= base_url()?><?php
-                                                foreach($employee as $emp){
-                                                  echo $emp->photoEmployee;
-                                                }
-                                              ?>" 
-                                        alt="Profile Photo">
+                                        <img src="<?= base_url() ?><?php
+                                                                    foreach ($employee as $emp) {
+                                                                        echo $emp->photoEmployee;
+                                                                    }
+                                                                    ?>" alt="Profile Photo">
                                     </div>
                                     <b class="caret d-none d-lg-block d-xl-block"></b>
                                     <p class="d-lg-none">
@@ -101,12 +100,12 @@
                                     </p>
                                 </a>
                                 <ul class="dropdown-menu dropdown-navbar">
-                                    <li class="nav-link"><a href="<?= base_url()?>index.php/employee/indexUser/<?php foreach($employee as $emp){
-                                                                            echo $emp->idAccountEmployee ;
-                                                                          }
-                                                                    ?>" class="nav-item dropdown-item">Profile</a></li>
+                                    <li class="nav-link"><a href="<?= base_url() ?>index.php/employee/indexUser/<?php foreach ($employee as $emp) {
+                                                                                                                    echo $emp->idAccountEmployee;
+                                                                                                                }
+                                                                                                                ?>" class="nav-item dropdown-item">Profile</a></li>
                                     <li class="dropdown-divider"></li>
-                                    <li class="nav-link"><a href="<?= base_url()?>index.php/employee/salirSesion" class="nav-item dropdown-item">Log out</a></li>
+                                    <li class="nav-link"><a href="<?= base_url() ?>index.php/employee/salirSesion" class="nav-item dropdown-item">Log out</a></li>
                                 </ul>
                             </li>
                             <li class="separator d-lg-none"></li>
@@ -146,151 +145,45 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php foreach($joffers as $offers){ ?>
-                                            <tr>
-                                                <td>
-                                                <?php echo $offers->titleJob;?>
-                                                </td>
-                                                <td>
-                                                <?php echo $offers->nameCategory;?>
-                                                </td>
-                                                <td>
-                                                <?php echo $offers->descriptionJob;?>
-                                                </td>
-                                                <td class="text-center">
-                                                <?php echo $offers->payForJob;?>
-                                                </td>
-                                                <td class="text-center">
-                                                <button type="submit" id="botonOn" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);"data-toggle="modal" data-target="#myModal" 
-                                                    onclick="FbotonOn()">Apply</button>
-                                                <!-- Modal -->
-                                                <div id="myModal" class="modal fade" role="dialog">
-                                                <div class="modal-dialog">
+                                            <?php foreach ($joffers as $offers) { ?>
+                                                <tr>
+                                                    <td>
+                                                        <?php echo $offers->titleJob; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $offers->nameCategory; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $offers->descriptionJob; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $offers->payForJob; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <button type="submit" id="botonOn" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);" data-toggle="modal" data-target="#myModal" onclick="FbotonOn()">Apply</button>
+                                                        <!-- Modal -->
+                                                        <div id="myModal" class="modal fade" role="dialog">
+                                                            <div class="modal-dialog">
 
-                                                    <!-- Modal content-->
-                                                    <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        <h4 class="modal-title">You applied</h4>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p> Thanks for applying, we will let you know if you were chosen for the job</p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                    </div>
-                                                    </div>
+                                                                <!-- Modal content-->
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                        <h4 class="modal-title">You applied</h4>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <p> Thanks for applying, we will let you know if you were chosen for the job</p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </div>
 
-                                                </div>
-                                                </div>
-<<<<<<< HEAD
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Clean a house
-                                                </td>
-                                                <td>
-                                                    Clean
-                                                </td>
-                                                <td>
-                                                    Job's description
-                                                </td>
-                                                <td class="text-center">
-                                                    15000 COP
-                                                </td>
-                                                <td class="text-center">
-                                                    <button type="submit" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);">Apply</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Clean a house
-                                                </td>
-                                                <td>
-                                                    Clean
-                                                </td>
-                                                <td>
-                                                    Job's description
-                                                </td>
-                                                <td class="text-center">
-                                                    15000 COP
-                                                </td>
-                                                <td class="text-center">
-                                                    <button type="submit" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);">Apply</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Clean a house
-                                                </td>
-                                                <td>
-                                                    Clean
-                                                </td>
-                                                <td>
-                                                    Job's description
-                                                </td>
-                                                <td class="text-center">
-                                                    15000 COP
-                                                </td>
-                                                <td class="text-center">
-                                                    <button type="submit" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);">Apply</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Clean a house
-                                                </td>
-                                                <td>
-                                                    Clean
-                                                </td>
-                                                <td>
-                                                    Job's description
-                                                </td>
-                                                <td class="text-center">
-                                                    15000 COP
-                                                </td>
-                                                <td class="text-center">
-                                                    <button type="submit" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);">Apply</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Clean a house
-                                                </td>
-                                                <td>
-                                                    Clean
-                                                </td>
-                                                <td>
-                                                    Job's description
-                                                </td>
-                                                <td class="text-center">
-                                                    15000 COP
-                                                </td>
-                                                <td class="text-center">
-                                                    <button type="submit" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);">Apply</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Clean a house
-                                                </td>
-                                                <td>
-                                                    Clean
-                                                </td>
-                                                <td>
-                                                    Job's description
-                                                </td>
-                                                <td class="text-center">
-                                                    15000 COP
-                                                </td>
-                                                <td class="text-center">
-                                                    <button type="submit" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);">Apply</button>
-=======
->>>>>>> a52043b6fd3cbf730027bc1beeba00b7ddbdeb12
-                                                </td>
-                                            </tr>
-                                        <?php }?>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
 
                                         </tbody>
                                     </table>
@@ -320,17 +213,17 @@
         </div>
     </div>
     <!--   Core JS Files   -->
-    <script src="<?= base_url()?>/js/core/jquery.min.js"></script>
-    <script src="<?= base_url()?>/js/core/popper.min.js"></script>
-    <script src="<?= base_url()?>/js/core/bootstrap.min.js"></script>
-    <script src="<?= base_url()?>/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <script src="<?= base_url() ?>/js/core/jquery.min.js"></script>
+    <script src="<?= base_url() ?>/js/core/popper.min.js"></script>
+    <script src="<?= base_url() ?>/js/core/bootstrap.min.js"></script>
+    <script src="<?= base_url() ?>/js/plugins/perfect-scrollbar.jquery.min.js"></script>
     <!-- Chart JS -->
-    <script src="<?= base_url()?>/js/plugins/chartjs.min.js"></script>
+    <script src="<?= base_url() ?>/js/plugins/chartjs.min.js"></script>
     <!--  Notifications Plugin    -->
-    <script src="<?= base_url()?>/js/plugins/bootstrap-notify.js"></script>
+    <script src="<?= base_url() ?>/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="<?= base_url()?>/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
-    <script src="<?= base_url()?>/demo/demo.js"></script>
+    <script src="<?= base_url() ?>/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
+    <script src="<?= base_url() ?>/demo/demo.js"></script>
     <script>
         $(document).ready(function() {
             $().ready(function() {
@@ -452,21 +345,13 @@
     </script>
     <script>
         var valor = true
+
         function FbotonOn() {
-        var uno = document.getElementById('botonOn');
-        if (uno.innerHTML == 'Apply') 
-            uno.innerHTML = 'Applied';
+            var uno = document.getElementById('botonOn');
+            if (uno.innerHTML == 'Apply')
+                uno.innerHTML = 'Applied';
         }
     </script>
 </body>
 
 </html>
-<script>
-var valor = true
-function FbotonOn() {
-  var uno = document.getElementById('botonOn');
-  if (uno.innerHTML == 'Apply') 
-      uno.innerHTML = 'Applied';
-}
-
-</script>

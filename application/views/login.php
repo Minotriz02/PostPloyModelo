@@ -45,7 +45,7 @@
                                 <label for="password">Password:</label>
                             </div>
                             <div class="col-lg-6 noPadding">
-                                <input style="border: none;border-radius: 9px;background: #7C7E97;width: 90%;height: 62px; color: #ECD9E6;font-family: 'Lato', sans-serif; font-size: 20px;"class="password" type="password" id="passwordEmployee" name="passwordEmployee">
+                                <input style="border: none;border-radius: 9px;background: #7C7E97;width: 90%;height: 62px; color: #ECD9E6;font-family: 'Lato', sans-serif; font-size: 20px;" class="password" type="password" id="passwordEmployee" name="passwordEmployee">
                             </div>
                         </div>
                         <div class="row prin">
@@ -62,6 +62,7 @@
                             <div class="col-lg-12 noPadding center">
                                 <button type="submit" id="employee-submit" name="boton" class="btn btn-primary log">Login</button>
                             </div>
+
                         </div>
                     </form>
                     <div class="row prin">

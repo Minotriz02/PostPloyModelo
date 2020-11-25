@@ -43,7 +43,7 @@ class Employee extends CI_Controller
                     }
                 }
             } else {
-                redirect('employee');
+                echo "<script>alert('M');</script>";
             }
         }
 
@@ -58,34 +58,16 @@ class Employee extends CI_Controller
     public function indexDash($id_usu)
     {
         $this->load->model('jobdone_model');
-<<<<<<< HEAD
-        //$trabajohecho=$this->jobdone_model->getJobsDone($id_usu);
-        //$employee=$this->employee_model->getEmployee($id_usu);
-        $data = array(
-=======
         $this->load->model('postulation_model');
-        $data=array(
->>>>>>> a52043b6fd3cbf730027bc1beeba00b7ddbdeb12
+        $data = array(
             'employee' => $this->employee_model->getEmployee($id_usu),
             'trabajohecho' => $this->jobdone_model->getJobsDone($id_usu),
             'trabajoval' => $this->postulation_model->getWaitJobCheck($id_usu),
             'trabajonoval' => $this->postulation_model->getWaitJobUnChecked($id_usu)
         );
-<<<<<<< HEAD
-        //$this->load->view('employee_dash',compact('employee'));
         $this->load->view('employee_dash', $data);
     }
 
-    public function indexOffer($id_usu)
-    {
-        $employee = $this->employee_model->getEmployee($id_usu);
-        $this->load->view('job_Offers', compact('employee'));
-    }
-=======
-        $this->load->view('employee_dash',$data);
-    }
-
->>>>>>> a52043b6fd3cbf730027bc1beeba00b7ddbdeb12
 
     public function indexUser($id_usu)
     {
@@ -174,10 +156,5 @@ class Employee extends CI_Controller
 
 
         redirect('employee/index');
-    }
-
-    public function salirSesion()
-    {
-        $this->load->view('logout');
     }
 }

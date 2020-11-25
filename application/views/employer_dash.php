@@ -40,27 +40,27 @@ session_start();
         <ul class="nav">
           <li class="active ">
             <a href="<?= base_url() ?>index.php/employer/indexDash/<?php foreach ($employer as $emp) {
-                                                                    echo $emp->idCEmployerAccount;
-                                                                  }
-                                                                  ?>">
+                                                                      echo $emp->idCEmployerAccount;
+                                                                    }
+                                                                    ?>">
               <i class="tim-icons icon-chart-pie-36"></i>
               <p>Postploy</p>
             </a>
           </li>
           <li>
             <a href="<?= base_url() ?>index.php/employer/indexMyJobs/<?php foreach ($employer as $emp) {
-                                                                      echo $emp->idCEmployerAccount;
-                                                                    }
-                                                                    ?>">
+                                                                        echo $emp->idCEmployerAccount;
+                                                                      }
+                                                                      ?>">
               <i class="tim-icons icon-single-copy-04"></i>
               <p>My jobs</p>
             </a>
           </li>
           <li>
             <a href="<?= base_url() ?>index.php/employer/indexUser/<?php foreach ($employer as $emp) {
-                                                                    echo $emp->idCEmployerAccount;
-                                                                  }
-                                                                  ?>">
+                                                                      echo $emp->idCEmployerAccount;
+                                                                    }
+                                                                    ?>">
               <i class="tim-icons icon-single-02"></i>
               <p>User Profile</p>
             </a>
@@ -93,10 +93,10 @@ session_start();
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
                     <img src="<?= base_url() ?><?php
-                                              foreach ($employer as $emp) {
-                                                echo $emp->photoEmployer;
-                                              }
-                                              ?>" alt="Profile Photo">
+                                                foreach ($employer as $emp) {
+                                                  echo $emp->photoEmployer;
+                                                }
+                                                ?>" alt="Profile Photo">
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
                   <p class="d-lg-none">
@@ -131,9 +131,9 @@ session_start();
           <div class="row">
             <div class="col-lg-4">
               <img class="circular-square" src="<?= base_url() ?><?php
-                                                                foreach ($employer as $emp) {
-                                                                  echo $emp->photoEmployer;
-                                                                } ?>" alt="Profile Photo">
+                                                                  foreach ($employer as $emp) {
+                                                                    echo $emp->photoEmployer;
+                                                                  } ?>" alt="Profile Photo">
             </div>
             <div class="col-lg-4">
               <div class="typography-line">
