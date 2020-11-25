@@ -49,13 +49,17 @@
                             </div>
                         </div>
                         <div class="row prin">
-                            <div class="col-lg-6 noPadding">
+                            <div class="col-lg-4 noPadding">
                                 <input type="radio" id="employer" name="role" value="Employer" checked>
                                 <label for="employer" class="Option">Employer</label>
                             </div>
-                            <div class="col-lg-6 noPadding">
+                            <div class="col-lg-4 noPadding">
                                 <input type="radio" id="employee" name="role" value="Employee">
                                 <label for="employee" class="Option">Employee</label>
+                            </div>
+                            <div class="col-lg-4 noPadding">
+                                <input type="radio" id="moderator" name="role" value="moderator">
+                                <label for="moderator" class="Option">Moderator</label>
                             </div>
                         </div>
                         <div class="row prin">
@@ -66,9 +70,14 @@
                         </div>
                     </form>
                     <div class="row prin">
-                        <div class="col-lg-12 noPadding center">
+                        <div class="col-lg-6 noPadding center">
                             <a href="<?= base_url() ?>index.php/employee/indexReg" class="simple-text logo-normal">
                                 Do you need an account?
+                            </a>
+                        </div>
+                        <div class="col-lg-6 noPadding center">
+                            <a href="<?= base_url() ?>index.php/moderator/indexReg" class="simple-text logo-normal">
+                                Are you a moderator and need an account?
                             </a>
                         </div>
                     </div>

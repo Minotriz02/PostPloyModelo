@@ -250,9 +250,9 @@ session_start();
                         <label>Category</label>
                         <br>
                         <select class="form-control" name="idCategoryf" id="idCategoryf">
-                          <option style="color:black;" value="Clean">Clean</option>
-                          <option style="color:black;" value="Clean">Clean</option>
-                          <option style="color:black;" value="Clean">Clean</option>
+                          <option style="color:black;" value="1">Clean</option>
+                          <option style="color:black;" value="1">Clean</option>
+                          <option style="color:black;" value="1">Clean</option>
                         </select>
                       </div>
                     </div>

@@ -21,4 +21,23 @@ class Job_offer_model extends CI_Model
         where ea.idAccountEmployee=p.idAccountEmployeef and ra.idCEmployerAccount=p.idCEmployerAccountf2 and jo.idJob=p.idJobf and idCEmployerAccount=".$id_usu." and jo.idJob=".$id_job);
         return $query->result();
     }
+
+    public function getAcceptJobOffers()
+    {
+        $query= $this->db->query("select a.idJob, a.idModeratorf, a.idCEmployerAccountf, a.idCategoryf, a.titleJob, a.descriptionJob,a.payForJob, b.idCategory, b.nameCategory 
+        from job_offers a inner join categories b on a.idCategoryf=b.idCategory where a.checkJob=1");
+        return $query->result();
+    }
+
+    public function getNoAcceptJobOffers()
+    {
+        $query= $this->db->query("select a.idJob, a.idModeratorf, a.idCEmployerAccountf, a.idCategoryf, a.titleJob, a.descriptionJob,a.payForJob, b.idCategory, b.nameCategory 
+        from job_offers a inner join categories b on a.idCategoryf=b.idCategory where a.checkJob=0");
+        return $query->result();
+    }
+
+    public function agregarTrabajo($data)
+    {
+        $this->db->insert('job_offers', $data);
+    }
 }

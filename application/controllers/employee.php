@@ -16,16 +16,22 @@ class Employee extends CI_Controller
             $option = null;
             $this->load->model('employee_model');
             $this->load->model('employer_model');
+            $this->load->model('moderator_model');
             if ($_POST['role'] == 'Employer') {
                 $option = 1;
             } else if ($_POST['role'] == 'Employee') {
                 $option = 2;
+            } else if ($_POST['role'] == 'moderator') {
+                $option = 3;
             }
             if ($option == 1) {
                 $q = $this->employer_model->iniciarSesion($_POST['mailEmployee'], $_POST['passwordEmployee']);
             }
             if ($option == 2) {
                 $q = $this->employee_model->iniciarSesion($_POST['mailEmployee'], $_POST['passwordEmployee']);
+            }
+            if ($option == 3) {
+                $q = $this->moderator_model->iniciarSesion($_POST['mailEmployee'], $_POST['passwordEmployee']);
             }
             if ($q->num_rows() > 0) {
                 if ($option == 1) {
@@ -42,8 +48,15 @@ class Employee extends CI_Controller
                         redirect('employee/indexDash/' . $emp->idAccountEmployee);
                     }
                 }
+                if ($option == 3) {
+                    $resultado = $q->result();
+                    foreach ($resultado as $emp) {
+                        echo $emp->idModerator;
+                        redirect('moderator/indexDash/' . $emp->idModerator);
+                    }
+                }
             } else {
-                echo "<script>alert('M');</script>";
+                redirect('employee');
             }
         }
 
