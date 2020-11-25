@@ -44,9 +44,15 @@
             </a>
           </li>
           <li>
+<<<<<<< HEAD
             <a href="<?= base_url() ?>index.php/employee/indexOffer/<?php foreach ($employee as $emp) {
                                                                       echo $emp->idAccountEmployee;
                                                                     }
+=======
+            <a href="<?= base_url()?>index.php/job_offer/indexOffer/<?php foreach($employee as $emp){
+                                                                            echo $emp->idAccountEmployee;
+                                                                          }
+>>>>>>> a52043b6fd3cbf730027bc1beeba00b7ddbdeb12
                                                                     ?>">
               <i class="tim-icons icon-paper"></i>
               <p>Job offers</p>
@@ -100,12 +106,21 @@
                   </p>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
+<<<<<<< HEAD
                   <li class="nav-link"><a href="<?= base_url() ?>index.php/employee/indexUser/<?php foreach ($employee as $emp) {
                                                                                                 echo $emp->idAccountEmployee;
                                                                                               }
                                                                                               ?>" class="nav-item dropdown-item">Profile</a></li>
                   <li class="dropdown-divider"></li>
                   <li class="nav-link"><a href="<?= base_url() ?>index.php/employer/salirSesion" class="nav-item dropdown-item">Log out</a></li>
+=======
+                  <li class="nav-link"><a href="<?= base_url()?>index.php/employee/indexUser/<?php foreach($employee as $emp){
+                                                                            echo $emp->idAccountEmployee ;
+                                                                          }
+                                                                    ?>" class="nav-item dropdown-item">Profile</a></li>
+                  <li class="dropdown-divider"></li>
+                  <li class="nav-link"><a href="<?= base_url()?>index.php/employee/salirSesion" class="nav-item dropdown-item">Log out</a></li>
+>>>>>>> a52043b6fd3cbf730027bc1beeba00b7ddbdeb12
                 </ul>
               </li>
               <li class="separator d-lg-none"></li>

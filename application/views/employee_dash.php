@@ -48,7 +48,7 @@
             </a>
           </li>
           <li>
-            <a href="<?= base_url()?>index.php/employee/indexOffer/<?php foreach($employee as $emp){
+            <a href="<?= base_url()?>index.php/job_offer/indexOffer/<?php foreach($employee as $emp){
                                                                             echo $emp->idAccountEmployee;
                                                                           }
                                                                     ?>">
@@ -219,7 +219,8 @@
                 <div class="table-full-width table-responsive">
                   <table class="table">
                     <tbody>
-                    
+                    <?php
+                            foreach($trabajoval as $jcheck){ ?>
                       <tr>
                         <td>
                           <div class="form-check ">
@@ -232,11 +233,30 @@
                           </div>
                         </td>
                         <td>
-                          <p class="title">Paint a house</p>
-                          <p class="text-muted">Carl Jhonson, job's description</p>
+                          <p class="title"><?php echo $jcheck->titleJob;?></p>
+                          <p class="text-muted"><?php echo $jcheck->name1Employer;?> <?php echo $jcheck->lastname1Employer;?>, <?php echo $jcheck->descriptionJob;?></p>
                         </td>
                       </tr>
+                      <?php }?>
+                      <?php
+                            foreach($trabajonoval as $juncheck){ ?>
                       <tr>
+                        <td>
+                          <div class="form-check ">
+                            <label class="form-check-label" >
+                              <input class="form-check-output" type="checkbox" disabled>
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                          </div>
+                        </td>
+                        <td>
+                          <p class="title"><?php echo $juncheck->titleJob;?></p>
+                          <p class="text-muted"><?php echo $juncheck->name1Employer;?> <?php echo $juncheck->lastname1Employer;?>, <?php echo $juncheck->descriptionJob;?></p>
+                        </td>
+                      </tr>
+                      <?php }?>
                     </tbody>
                   </table>
                 </div>
