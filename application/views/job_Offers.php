@@ -345,9 +345,14 @@
     <script>
         var valor = true
         function FbotonOn() {
-        var uno = document.getElementById('botonOn');
+        val elementList = $(".botonOn");
+        for (var i = 1; i <= list.length; i++) {
+            elementList[i].attr("id", "botonOn" + i);
+         
+        var uno = document.getElementById(elementList[i]);
         if (uno.innerHTML == 'Apply') 
             uno.innerHTML = 'Applied';
+        }
         }
     </script>
 </body>
