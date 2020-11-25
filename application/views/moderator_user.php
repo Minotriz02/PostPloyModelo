@@ -133,7 +133,7 @@
                                         <div class="col-md-3 pr-md-1">
                                             <div class="form-group">
                                                 <label>User name</label>
-                                                <input type="text" class="form-control" id='name1Employee' name='name1Employee' value="<?php
+                                                <input type="text" class="form-control" id='moderatorAccount' name='moderatorAccount' value="<?php
                                                                                                                                         foreach ($moderator as $emp) {
                                                                                                                                             echo $emp->moderatorAccount;
                                                                                                                                         } ?>">
@@ -142,7 +142,7 @@
                                         <div class="col-md-3 px-md-1">
                                             <div class="form-group">
                                                 <label>Mail</label>
-                                                <input type="text" class="form-control" id='name2Employee' name='name2Employee' value="<?php
+                                                <input type="text" class="form-control" id='mailModerator' name='mailModerator' value="<?php
                                                                                                                                         foreach ($moderator as $emp) {
                                                                                                                                             echo $emp->mailModerator;
                                                                                                                                         } ?>">
@@ -151,7 +151,7 @@
                                         <div class="col-md-3 pl-md-1">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Phone</label>
-                                                <input type="text" class="form-control" id='lastname1Employee' name='lastname1Employee' value="<?php
+                                                <input type="text" class="form-control" id='moderatorPhoneNumber' name='moderatorPhoneNumber' value="<?php
                                                                                                                                                 foreach ($moderator as $emp) {
                                                                                                                                                     echo $emp->moderatorPhoneNumber;
                                                                                                                                                 } ?>">

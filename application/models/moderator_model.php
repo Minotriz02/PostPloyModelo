@@ -34,4 +34,14 @@ class Moderator_model extends CI_Model
             return $q;
         }
     }
+
+    public function modificarModerator($idModerator, $data)
+    {
+        $moderatorAccount = $data['moderatorAccount'];
+        $moderatorPhoneNumber = $data['moderatorPhoneNumber'];
+        $mailModerator = $data['mailModerator'];
+        $query = "UPDATE moderators SET moderatorAccount = '$moderatorAccount', moderatorPhoneNumber = '$moderatorPhoneNumber', mailModerator = '$mailModerator'
+                                               WHERE idModerator  = $idModerator";
+        $this->db->query($query);
+    }
 }

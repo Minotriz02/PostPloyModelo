@@ -56,7 +56,7 @@ class Employee extends CI_Controller
                     }
                 }
             } else {
-                echo "<script>alert('M');</script>";
+                redirect('employee');
             }
         }
 

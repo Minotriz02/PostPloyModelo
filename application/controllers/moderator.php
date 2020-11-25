@@ -51,12 +51,12 @@ class Moderator extends CI_Controller
                 if ($option == 3) {
                     $resultado = $q->result();
                     foreach ($resultado as $emp) {
-                        echo $emp->idModerator ;
-                        redirect('moderator/indexDash/' . $emp->idModerator );
+                        echo $emp->idModerator;
+                        redirect('moderator/indexDash/' . $emp->idModerator);
                     }
                 }
             } else {
-                echo "<script>alert('M');</script>";
+                redirect('employee');
             }
         }
 
@@ -99,6 +99,15 @@ class Moderator extends CI_Controller
     public function indexUser($id_usu)
     {
         $moderator = $this->moderator_model->getModerator($id_usu);
+        if (isset($_REQUEST['guardar'])) {
+            $save = array(
+                'moderatorAccount' =>  $this->input->post('moderatorAccount'),
+                'moderatorPhoneNumber' =>  $this->input->post('moderatorPhoneNumber'),
+                'mailModerator' =>  $this->input->post('mailModerator'),
+            );
+            $this->moderator_model->modificarModerator($id_usu, $save);
+            $moderator = $this->moderator_model->getModerator($id_usu);
+        }
         $this->load->view('moderator_user', compact('moderator'));
     }
 
