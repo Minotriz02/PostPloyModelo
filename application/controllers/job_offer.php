@@ -18,4 +18,5 @@ class Job_offer extends CI_Controller
         );
         $this->load->view('job_Offers',$data);
     }
+
 }

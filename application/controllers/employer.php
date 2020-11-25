@@ -54,6 +54,23 @@ class Employer extends CI_Controller
     {
         $employer = $this->employer_model->getPost($id_usu);
         $this->load->view('employer_dash', compact('employer'));
+        $this->load->model("job_offer_model");
+
+        if (isset($_REQUEST['añadir'])) {
+            $save = array(
+                'idModeratorf' =>  1,
+                'idCEmployerAccountf' =>  $id_usu,
+                'idCategoryf' =>  $this->input->post('idCategoryf'),
+                'titleJob' =>  $this->input->post('titleJob'),
+                'descriptionJob' =>  $this->input->post('descriptionJob'),
+                'payForJob' =>  $this->input->post('payForJob'),
+                'timeRequired' =>  $this->input->post('timeRequired'),
+                'checkJob' =>  0
+            );
+            $this->job_offer_model->agregarTrabajo($save);
+            $employer = $this->employer_model->getEmployer($id_usu);
+        }
+
     }
 
     public function indexUser($id_usu)
