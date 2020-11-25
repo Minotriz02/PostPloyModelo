@@ -13,9 +13,10 @@ class Employee_model extends CI_Model
         return $idEmployee;
     }
 
-    public function getEmployee($id){
-        $this->db->where('idAccountEmployee',$id);
-        $query= $this->db->get('employee_view');
+    public function getEmployee($id)
+    {
+        $this->db->where('idAccountEmployee', $id);
+        $query = $this->db->get('employee_view');
         return $query->result();
     }
 
@@ -33,5 +34,20 @@ class Employee_model extends CI_Model
         } else {
             return $q;
         }
+    }
+
+    public function modificarEmployee($idEmployee, $data)
+    {
+        $name1Employee = $data['name1Employee'];
+        $name2Employee = $data['name2Employee'];
+        $lastname1Employee = $data['lastname1Employee'];
+        $lastname2Employee = $data['lastname2Employee'];
+        $phoneEmployee = $data['phoneEmployee'];
+        $adressEmployee = $data['adressEmployee'];
+        $mailEmployee = $data['mailEmployee'];
+        $query = "UPDATE employee_accounts SET name1Employee = '$name1Employee', name2Employee = '$name2Employee', lastname1Employee = '$lastname1Employee',
+                                               lastname2Employee = '$lastname2Employee',phoneEmployee = '$phoneEmployee',adressEmployee = '$adressEmployee', mailEmployee= '$mailEmployee'
+                                               WHERE idAccountEmployee = $idEmployee";
+        $this->db->query($query);
     }
 }

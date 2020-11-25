@@ -34,4 +34,26 @@ class Employer_model extends CI_Model
             return $q;
         }
     }
+
+    public function getEmployer($id)
+    {
+        $this->db->where('idCEmployerAccount', $id);
+        $query = $this->db->get('employer_view');
+        return $query->result();
+    }
+
+    public function modificarEmployer($idEmployer, $data)
+    {
+        $name1Employer = $data['name1Employer'];
+        $name2Employer = $data['name2Employer'];
+        $lastname1Employer = $data['lastname1Employer'];
+        $lastname2Employer = $data['lastname2Employer'];
+        $phoneEmployer = $data['phoneEmployer'];
+        $adressEmployer = $data['adressEmployer'];
+        $mailEmployer = $data['mailEmployer'];
+        $query = "UPDATE employer_accounts SET name1Employer = '$name1Employer', name2Employer = '$name2Employer', lastname1Employer = '$lastname1Employer',
+                                               lastname2Employer = '$lastname2Employer',phoneEmployer = '$phoneEmployer',adressEmployer = '$adressEmployer', mailEmployer= '$mailEmployer'
+                                               WHERE idCEmployerAccount = $idEmployer";
+        $this->db->query($query);
+    }
 }

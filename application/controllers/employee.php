@@ -8,7 +8,7 @@ class Employee extends CI_Controller
         parent::__construct();
         $this->load->model("employee_model");
         $this->load->helper(array('form', 'url'));
-    }   
+    }
 
     public function index()
     {
@@ -43,7 +43,7 @@ class Employee extends CI_Controller
                     }
                 }
             } else {
-                redirect('employee');
+                echo "<script>alert('M');</script>";
             }
         }
 
@@ -59,20 +59,36 @@ class Employee extends CI_Controller
     {
         $this->load->model('jobdone_model');
         $this->load->model('postulation_model');
-        $data=array(
+        $data = array(
             'employee' => $this->employee_model->getEmployee($id_usu),
             'trabajohecho' => $this->jobdone_model->getJobsDone($id_usu),
             'trabajoval' => $this->postulation_model->getWaitJobCheck($id_usu),
             'trabajonoval' => $this->postulation_model->getWaitJobUnChecked($id_usu)
         );
-        $this->load->view('employee_dash',$data);
+        $this->load->view('employee_dash', $data);
     }
 
 
     public function indexUser($id_usu)
     {
-        $employee=$this->employee_model->getEmployee($id_usu);
-        $this->load->view('employee_user',compact('employee'));
+        $this->load->model('employee_model');
+
+        $employee = $this->employee_model->getEmployee($id_usu);
+
+        if (isset($_REQUEST['guardar'])) {
+            $save = array(
+                'name1Employee' =>  $this->input->post('name1Employee'),
+                'lastname2Employee' =>  $this->input->post('lastname2Employee'),
+                'name2Employee' =>  $this->input->post('name2Employee'),
+                'lastname1Employee' =>  $this->input->post('lastname1Employee'),
+                'phoneEmployee' =>  $this->input->post('phoneEmployee'),
+                'adressEmployee' =>  $this->input->post('adressEmployee'),
+                'mailEmployee' =>  $this->input->post('mailEmployee')
+            );
+            $this->employee_model->modificarEmployee($id_usu, $save);
+            $employee = $this->employee_model->getEmployee($id_usu);
+        }
+        $this->load->view('employee_user', compact('employee'));
     }
 
     public function salirSesion()
@@ -103,12 +119,12 @@ class Employee extends CI_Controller
         }
 
         $data = "uploads/" . $this->upload->data('file_name');
-        if ($_POST['role']=='Employer'){
+        if ($_POST['role'] == 'Employer') {
             $option = 1;
-        } else if ($_POST['role']=='Employee'){
+        } else if ($_POST['role'] == 'Employee') {
             $option = 2;
         }
-        if ($option == 2){
+        if ($option == 2) {
             $save = array(
                 'name1Employee' =>  $this->input->post('name1Employee'),
                 'lastname2Employee' =>  $this->input->post('lastname2Employee'),
@@ -118,12 +134,11 @@ class Employee extends CI_Controller
                 'adressEmployee' =>  $this->input->post('adressEmployee'),
                 'mailEmployee' =>  $this->input->post('mailEmployee'),
                 'photoEmployee' =>  $data,
-                'passwordEmployee' =>  $this->input->post('passwordEmployee')    
+                'passwordEmployee' =>  $this->input->post('passwordEmployee')
             );
             $this->employee_model->saveEmployee($save);
-
         }
-        if ($option == 1){
+        if ($option == 1) {
             $save = array(
                 'name1Employer' =>  $this->input->post('name1Employee'),
                 'lastname2Employer' =>  $this->input->post('lastname2Employee'),
@@ -137,10 +152,9 @@ class Employee extends CI_Controller
             );
             $this->employer_model->saveEmployer($save);
         }
-                
+
 
 
         redirect('employee/index');
     }
-
 }

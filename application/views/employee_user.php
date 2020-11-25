@@ -13,12 +13,12 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <!-- Nucleo Icons -->
-  <link href="<?= base_url()?>/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="<?= base_url() ?>/css/nucleo-icons.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link href="<?= base_url()?>/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+  <link href="<?= base_url() ?>/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
 
   <!-- My CSS-->
-  <link href="<?= base_url()?>/css/style_dash.css" rel="stylesheet" />
+  <link href="<?= base_url() ?>/css/style_dash.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -35,9 +35,9 @@
         </div>
         <ul class="nav">
           <li>
-            <a href="<?= base_url()?>index.php/employee/indexDash/<?php foreach($employee as $emp){
-                                                                            echo $emp->idAccountEmployee;
-                                                                          }
+            <a href="<?= base_url() ?>index.php/employee/indexDash/<?php foreach ($employee as $emp) {
+                                                                      echo $emp->idAccountEmployee;
+                                                                    }
                                                                     ?>">
               <i class="tim-icons icon-chart-pie-36"></i>
               <p>Postploy</p>
@@ -53,9 +53,9 @@
             </a>
           </li>
           <li class="active ">
-            <a href="<?= base_url()?>index.php/employee/indexUser/<?php foreach($employee as $emp){
-                                                                            echo $emp->idAccountEmployee;
-                                                                          }
+            <a href="<?= base_url() ?>index.php/employee/indexUser/<?php foreach ($employee as $emp) {
+                                                                      echo $emp->idAccountEmployee;
+                                                                    }
                                                                     ?>">
               <i class="tim-icons icon-single-02"></i>
               <p>User Profile</p>
@@ -88,11 +88,11 @@
               <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
-                    <img src="<?= base_url()?><?php
-                                                foreach($employee as $emp){
+                    <img src="<?= base_url() ?><?php
+                                                foreach ($employee as $emp) {
                                                   echo $emp->photoEmployee;
                                                 }
-                                              ?>" alt="Profile Photo">
+                                                ?>" alt="Profile Photo">
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
                   <p class="d-lg-none">
@@ -113,7 +113,7 @@
           </div>
         </div>
       </nav>
-     
+
       <!-- End Navbar -->
       <div class="content">
         <div class="row">
@@ -123,42 +123,42 @@
                 <h5 class="title">Edit Profile</h5>
               </div>
               <div class="card-body">
-                <form>
+                <form method="POST">
                   <div class="row">
                     <div class="col-md-3 pr-md-1">
                       <div class="form-group">
                         <label>First name</label>
-                        <input type="text" class="form-control" value="<?php
-                                                                            foreach($employee as $emp){
-                                                                            echo $emp->name1Employee;
-                                                                        }?>">
+                        <input type="text" class="form-control" id='name1Employee' name='name1Employee' value="<?php
+                                                                                                                foreach ($employee as $emp) {
+                                                                                                                  echo $emp->name1Employee;
+                                                                                                                } ?>">
                       </div>
                     </div>
                     <div class="col-md-3 px-md-1">
                       <div class="form-group">
                         <label>Second name</label>
-                        <input type="text" class="form-control" value="<?php
-                                                                            foreach($employee as $emp){
-                                                                            echo $emp->name2Employee;
-                                                                        }?>">
+                        <input type="text" class="form-control" id='name2Employee' name='name2Employee' value="<?php
+                                                                                                                foreach ($employee as $emp) {
+                                                                                                                  echo $emp->name2Employee;
+                                                                                                                } ?>">
                       </div>
                     </div>
                     <div class="col-md-3 pl-md-1">
                       <div class="form-group">
                         <label for="exampleInputEmail1">First lastname</label>
-                        <input type="email" class="form-control" value="<?php
-                                                                            foreach($employee as $emp){
-                                                                            echo $emp->lastname1Employee;
-                                                                        }?>">
+                        <input type="text" class="form-control" id='lastname1Employee' name='lastname1Employee' value="<?php
+                                                                                                                        foreach ($employee as $emp) {
+                                                                                                                          echo $emp->lastname1Employee;
+                                                                                                                        } ?>">
                       </div>
                     </div>
                     <div class="col-md-3 pl-md-1">
                       <div class="form-group">
                         <label>Second lastname</label>
-                        <input type="text" class="form-control" value="<?php
-                                                                            foreach($employee as $emp){
-                                                                            echo $emp->lastname2Employee;
-                                                                        }?>">
+                        <input type="text" class="form-control" id='lastname2Employee' name='lastname2Employee' value="<?php
+                                                                                                                        foreach ($employee as $emp) {
+                                                                                                                          echo $emp->lastname2Employee;
+                                                                                                                        } ?>">
                       </div>
                     </div>
                   </div>
@@ -166,19 +166,19 @@
                     <div class="col-md-6 pr-md-1">
                       <div class="form-group">
                         <label>Phone number</label>
-                        <input type="text" class="form-control" value="<?php
-                                                                            foreach($employee as $emp){
-                                                                            echo $emp->phoneEmployee;
-                                                                        }?>">
+                        <input type="text" class="form-control" id='phoneEmployee' name='phoneEmployee' value="<?php
+                                                                                                                foreach ($employee as $emp) {
+                                                                                                                  echo $emp->phoneEmployee;
+                                                                                                                } ?>">
                       </div>
                     </div>
                     <div class="col-md-6 pl-md-1">
                       <div class="form-group">
                         <label>Adress</label>
-                        <input type="text" class="form-control" value="<?php
-                                                                            foreach($employee as $emp){
-                                                                            echo $emp->adressEmployee;
-                                                                        }?>">
+                        <input type="text" class="form-control" id='adressEmployee' name='adressEmployee' value="<?php
+                                                                                                                  foreach ($employee as $emp) {
+                                                                                                                    echo $emp->adressEmployee;
+                                                                                                                  } ?>">
                       </div>
                     </div>
                   </div>
@@ -186,17 +186,17 @@
                     <div class="col-md-6 pr-md-1">
                       <div class="form-group">
                         <label>Mail</label>
-                        <input type="text" class="form-control" value="<?php
-                                                                            foreach($employee as $emp){
-                                                                            echo $emp->mailEmployee;
-                                                                        }?>">
+                        <input type="email" class="form-control" id='mailEmployee' name='mailEmployee' value="<?php
+                                                                                                              foreach ($employee as $emp) {
+                                                                                                                echo $emp->mailEmployee;
+                                                                                                              } ?>">
                       </div>
                     </div>
                   </div>
+                  <div class="card-footer">
+                    <button type="submit" name="guardar" class="btn btn-fill btn-primary" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);">Save</button>
+                  </div>
                 </form>
-              </div>
-              <div class="card-footer">
-                <button type="submit" class="btn btn-fill btn-primary" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);">Save</button>
               </div>
             </div>
           </div>
@@ -210,20 +210,20 @@
                     <div class="block block-three" style="background: linear-gradient(to right, #4a40d8c7 0%, #4a40d852 100%);"></div>
                     <div class="block block-four" style="background: linear-gradient(to right, #4a40d8c7 0%, #4a40d852 100%);"></div>
                     <a href="javascript:void(0)">
-                      <img class="avatar" src="<?= base_url()?><?php
-                                                foreach($employee as $emp){
-                                                  echo $emp->photoEmployee;
-                                                }
-                                              ?>" alt="...">
+                      <img class="avatar" src="<?= base_url() ?><?php
+                                                                foreach ($employee as $emp) {
+                                                                  echo $emp->photoEmployee;
+                                                                }
+                                                                ?>" alt="...">
                       <h5 class="title">
-                            <?php
-                                foreach($employee as $emp){
-                                echo $emp->name1Employee." ";
-                                echo $emp->name2Employee." ";
-                                echo $emp->lastname1Employee." ";
-                                echo $emp->lastname2Employee;
-                            }?>
-                        </h5>
+                        <?php
+                        foreach ($employee as $emp) {
+                          echo $emp->name1Employee . " ";
+                          echo $emp->name2Employee . " ";
+                          echo $emp->lastname1Employee . " ";
+                          echo $emp->lastname2Employee;
+                        } ?>
+                      </h5>
                     </a>
                     <p class="description">
                       Employee
@@ -257,17 +257,17 @@
 
   </div>
   <!--   Core JS Files   -->
-  <script src="<?= base_url()?>/js/core/jquery.min.js"></script>
-  <script src="<?= base_url()?>/js/core/popper.min.js"></script>
-  <script src="<?= base_url()?>/js/core/bootstrap.min.js"></script>
-  <script src="<?= base_url()?>/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <script src="<?= base_url() ?>/js/core/jquery.min.js"></script>
+  <script src="<?= base_url() ?>/js/core/popper.min.js"></script>
+  <script src="<?= base_url() ?>/js/core/bootstrap.min.js"></script>
+  <script src="<?= base_url() ?>/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!-- Chart JS -->
-  <script src="<?= base_url()?>/js/plugins/chartjs.min.js"></script>
+  <script src="<?= base_url() ?>/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
-  <script src="<?= base_url()?>/js/plugins/bootstrap-notify.js"></script>
+  <script src="<?= base_url() ?>/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="<?= base_url()?>/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
-  <script src="<?= base_url()?>/demo/demo.js"></script>
+  <script src="<?= base_url() ?>/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
+  <script src="<?= base_url() ?>/demo/demo.js"></script>
   <script>
     $(document).ready(function() {
       $().ready(function() {

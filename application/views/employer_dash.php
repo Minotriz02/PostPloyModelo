@@ -1,5 +1,5 @@
 <?php
-  session_start();
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -17,12 +17,12 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <!-- Nucleo Icons -->
-  <link href="<?= base_url()?>/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="<?= base_url() ?>/css/nucleo-icons.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link href="<?= base_url()?>/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+  <link href="<?= base_url() ?>/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
 
   <!-- My CSS-->
-  <link href="<?= base_url()?>/css/style_dash.css" rel="stylesheet" />
+  <link href="<?= base_url() ?>/css/style_dash.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -39,27 +39,27 @@
         </div>
         <ul class="nav">
           <li class="active ">
-            <a href="<?= base_url()?>index.php/employer/indexDash/<?php foreach($employer as $emp){
-                                                                            echo $emp->idCEmployerAccount ;
-                                                                          }
+            <a href="<?= base_url() ?>index.php/employer/indexDash/<?php foreach ($employer as $emp) {
+                                                                      echo $emp->idCEmployerAccount;
+                                                                    }
                                                                     ?>">
               <i class="tim-icons icon-chart-pie-36"></i>
               <p>Postploy</p>
             </a>
           </li>
           <li>
-            <a href="<?= base_url()?>index.php/employer/indexMyJobs/<?php foreach($employer as $emp){
-                                                                            echo $emp->idCEmployerAccount ;
-                                                                          }
-                                                                    ?>">
+            <a href="<?= base_url() ?>index.php/employer/indexMyJobs/<?php foreach ($employer as $emp) {
+                                                                        echo $emp->idCEmployerAccount;
+                                                                      }
+                                                                      ?>">
               <i class="tim-icons icon-single-copy-04"></i>
               <p>My jobs</p>
             </a>
           </li>
           <li>
-            <a href="<?= base_url()?>index.php/employer/indexUser/<?php foreach($employer as $emp){
-                                                                            echo $emp->idCEmployerAccount ;
-                                                                          }
+            <a href="<?= base_url() ?>index.php/employer/indexUser/<?php foreach ($employer as $emp) {
+                                                                      echo $emp->idCEmployerAccount;
+                                                                    }
                                                                     ?>">
               <i class="tim-icons icon-single-02"></i>
               <p>User Profile</p>
@@ -92,12 +92,11 @@
               <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
-                    <img src="<?= base_url()?><?php
-                                                foreach($employer as $emp){
+                    <img src="<?= base_url() ?><?php
+                                                foreach ($employer as $emp) {
                                                   echo $emp->photoEmployer;
                                                 }
-                                              ?>" 
-                    alt="Profile Photo">
+                                                ?>" alt="Profile Photo">
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
                   <p class="d-lg-none">
@@ -105,12 +104,12 @@
                   </p>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
-                  <li class="nav-link"><a href="<?= base_url()?>index.php/employer/indexUser/<?php foreach($employer as $emp){
-                                                                            echo $emp->idCEmployerAccount ;
-                                                                          }
-                                                                    ?>" class="nav-item dropdown-item">Profile</a></li>
+                  <li class="nav-link"><a href="<?= base_url() ?>index.php/employer/indexUser/<?php foreach ($employer as $emp) {
+                                                                                                echo $emp->idCEmployerAccount;
+                                                                                              }
+                                                                                              ?>" class="nav-item dropdown-item">Profile</a></li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-link"><a href="<?= base_url()?>index.php/employer/salirSesion" class="nav-item dropdown-item">Log out</a></li>
+                  <li class="nav-link"><a href="<?= base_url() ?>index.php/employer/salirSesion" class="nav-item dropdown-item">Log out</a></li>
                 </ul>
               </li>
               <li class="separator d-lg-none"></li>
@@ -118,9 +117,9 @@
           </div>
         </div>
       </nav>
-      
+
       <!-- End Navbar -->
-      
+
       <div class="content">
         <!-- Inicio Usuario -->
         <div class="usuario">
@@ -131,30 +130,30 @@
           </div>
           <div class="row">
             <div class="col-lg-4">
-              <img class="circular-square" src="<?= base_url()?><?php
-                foreach($employer as $emp){
-                  echo $emp->photoEmployer;
-                }?>" alt="Profile Photo">
+              <img class="circular-square" src="<?= base_url() ?><?php
+                                                                  foreach ($employer as $emp) {
+                                                                    echo $emp->photoEmployer;
+                                                                  } ?>" alt="Profile Photo">
             </div>
             <div class="col-lg-4">
               <div class="typography-line">
-                
+
                 <span>Name: </span>
-                <p >
-                <?php
-                foreach($employer as $emp){
-                  echo $emp->name1Employer;
-                }?>
+                <p>
+                  <?php
+                  foreach ($employer as $emp) {
+                    echo $emp->name1Employer;
+                  } ?>
                 </p>
               </div>
               <div class="typography-line">
-                
+
                 <span>Phone: </span>
                 <p>
-                <?php
-                foreach($employer as $emp){
-                  echo $emp->phoneEmployer;
-                }?>
+                  <?php
+                  foreach ($employer as $emp) {
+                    echo $emp->phoneEmployer;
+                  } ?>
                 </p>
               </div>
               <div class="typography-line">
@@ -166,19 +165,19 @@
               <div class="typography-line">
                 <span>Adress: </span>
                 <p>
-                <?php
-                foreach($employer as $emp){
-                  echo $emp->adressEmployer;
-                }?>
+                  <?php
+                  foreach ($employer as $emp) {
+                    echo $emp->adressEmployer;
+                  } ?>
                 </p>
               </div>
               <div class="typography-line">
                 <span>Mail: </span>
                 <p>
-                <?php
-                foreach($employer as $emp){
-                  echo $emp->mailEmployer;
-                }?>
+                  <?php
+                  foreach ($employer as $emp) {
+                    echo $emp->mailEmployer;
+                  } ?>
                 </p>
               </div>
             </div>
@@ -191,18 +190,18 @@
               </div>
               <div class="typography-line">
                 <span>Ranking: </span>
-                <p >
+                <p>
                   3.7
                 </p>
               </div>
               <div class="typography-line">
                 <span>Age: </span>
-                <p >
+                <p>
                   22
                 </p>
               </div>
               <?php
-                
+
               ?>
             </div>
           </div>
@@ -210,282 +209,62 @@
         <!-- Fin Usuario -->
         <div class="row">
           <!--Trabajos hechos -->
-          <div class="col-lg-6 col-md-12">
+          <div class="col-lg-12 col-md-12">
             <div class="card card-tasks">
               <div class="card-header ">
-                <h6 class="title d-inline">Waiting jobs</h6>     
+                <h6 class="title d-inline">Add jobs</h6>
               </div>
               <div class="card-body ">
-                <div class="table-full-width table-responsive">
-                  <table class="table">
-                    <tbody>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Paint a house</p>
-                          <p class="text-muted">Carl Jhonson, job's description</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value=""checked="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Paint a house</p>
-                          <p class="text-muted">Carl Jhonson, job's description</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Paint a house</p>
-                          <p class="text-muted">Carl Jhonson, job's description</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Paint a house</p>
-                          <p class="text-muted">Carl Jhonson, job's description</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Paint a house</p>
-                          <p class="text-muted">Carl Jhonson, job's description</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Paint a house</p>
-                          <p class="text-muted">Carl Jhonson, job's description</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Paint a house</p>
-                          <p class="text-muted">Carl Jhonson, job's description</p>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form-check">
-                            <label class="form-check-label">
-                              <input class="form-check-input" type="checkbox" value="">
-                              <span class="form-check-sign">
-                                <span class="check"></span>
-                              </span>
-                            </label>
-                          </div>
-                        </td>
-                        <td>
-                          <p class="title">Paint a house</p>
-                          <p class="text-muted">Carl Jhonson, job's description</p>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+                <form method="POST">
+                  <div class="row">
+                    <div class="col-md-12 pr-md-12">
+                      <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control" id='titleJob' name='titleJob' value="">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 pr-md-12">
+                      <div class="form-group">
+                        <label>Description</label>
+                        <textarea col="200" rows="5" class="form-control" id='descriptionJob' name='descriptionJob' value=""></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 pr-md-1">
+                      <div class="form-group">
+                        <label>Pay for job</label>
+                        <input type="number" class="form-control" id='payForJob' name='payForJob' value="">
+                      </div>
+                    </div>
+                    <div class="col-md-4 pr-md-1">
+                      <div class="form-group">
+                        <label>Time required (in days)</label>
+                        <input type="number" class="form-control" id='timeRequired' name='timeRequired' value="">
+                      </div>
+                    </div>
+                    <div class="col-md-4 pr-md-1">
+                      <div class="form-group">
+                        <label>Category</label>
+                        <br>
+                        <select class="form-control" name="idCategoryf" id="idCategoryf">
+                          <option style="color:black;" value="Clean">Clean</option>
+                          <option style="color:black;" value="Clean">Clean</option>
+                          <option style="color:black;" value="Clean">Clean</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <button type="submit" name="añadir" class="btn btn-fill btn-primary" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);">Add</button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
           <!--Fin Trabajos hechos -->
-          <!--Inicio Trabajos aplicados-->
-          <div class="col-lg-6 col-md-12">
-            <div class="card ">
-              <div class="card-header">
-                <h4 class="card-title"> Jobs done</h4>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table tablesorter " id="">
-                    <thead class=" text-primary">
-                      <tr>
-                        <th>
-                          Title job
-                        </th>
-                        <th>
-                          Category
-                        </th>
-                        <th>
-                          Description
-                        </th>
-                        <th class="text-center">
-                          Salary
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          Clean a house
-                        </td>
-                        <td>
-                          Clean
-                        </td>
-                        <td>
-                          Job's description
-                        </td>
-                        <td class="text-center">
-                          15000 COP
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Clean a house
-                        </td>
-                        <td>
-                          Clean
-                        </td>
-                        <td>
-                          Job's description
-                        </td>
-                        <td class="text-center">
-                          15000 COP
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Clean a house
-                        </td>
-                        <td>
-                          Clean
-                        </td>
-                        <td>
-                          Job's description
-                        </td>
-                        <td class="text-center">
-                          15000 COP
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Clean a house
-                        </td>
-                        <td>
-                          Clean
-                        </td>
-                        <td>
-                          Job's description
-                        </td>
-                        <td class="text-center">
-                          15000 COP
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Clean a house
-                        </td>
-                        <td>
-                          Clean
-                        </td>
-                        <td>
-                          Job's description
-                        </td>
-                        <td class="text-center">
-                          15000 COP
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Clean a house
-                        </td>
-                        <td>
-                          Clean
-                        </td>
-                        <td>
-                          Job's description
-                        </td>
-                        <td class="text-center">
-                          15000 COP
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Clean a house
-                        </td>
-                        <td>
-                          Clean
-                        </td>
-                        <td>
-                          Job's description
-                        </td>
-                        <td class="text-center">
-                          15000 COP
-                        </td>
-                      </tr>
-                    
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--Fin Trabajos aplicados-->
         </div>
       </div>
       <footer class="footer">
@@ -508,17 +287,17 @@
     </div>
   </div>
   <!--   Core JS Files   -->
-  <script src="<?= base_url()?>/js/core/jquery.min.js"></script>
-  <script src="<?= base_url()?>/js/core/popper.min.js"></script>
-  <script src="<?= base_url()?>/js/core/bootstrap.min.js"></script>
-  <script src="<?= base_url()?>/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <script src="<?= base_url() ?>/js/core/jquery.min.js"></script>
+  <script src="<?= base_url() ?>/js/core/popper.min.js"></script>
+  <script src="<?= base_url() ?>/js/core/bootstrap.min.js"></script>
+  <script src="<?= base_url() ?>/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!-- Chart JS -->
-  <script src="<?= base_url()?>/js/plugins/chartjs.min.js"></script>
+  <script src="<?= base_url() ?>/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
-  <script src="<?= base_url()?>/js/plugins/bootstrap-notify.js"></script>
+  <script src="<?= base_url() ?>/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="<?= base_url()?>/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
-  <script src="<?= base_url()?>/demo/demo.js"></script>
+  <script src="<?= base_url() ?>/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
+  <script src="<?= base_url() ?>/demo/demo.js"></script>
   <script>
     $(document).ready(function() {
       $().ready(function() {
