@@ -101,9 +101,12 @@
                                     </p>
                                 </a>
                                 <ul class="dropdown-menu dropdown-navbar">
-                                    <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a></li>
+                                    <li class="nav-link"><a href="<?= base_url()?>index.php/employee/indexUser/<?php foreach($employee as $emp){
+                                                                            echo $emp->idAccountEmployee ;
+                                                                          }
+                                                                    ?>" class="nav-item dropdown-item">Profile</a></li>
                                     <li class="dropdown-divider"></li>
-                                    <li class="nav-link"><a href="logout.php" class="nav-item dropdown-item">Log out</a></li>
+                                    <li class="nav-link"><a href="<?= base_url()?>index.php/employee/salirSesion" class="nav-item dropdown-item">Log out</a></li>
                                 </ul>
                             </li>
                             <li class="separator d-lg-none"></li>
@@ -157,7 +160,28 @@
                                                     15000 COP
                                                 </td>
                                                 <td class="text-center">
-                                                    <button type="submit" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);">Apply</button>
+                                                <button type="submit" id="botonOn" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);"data-toggle="modal" data-target="#myModal" 
+                                                    onclick="FbotonOn()">Apply</button>
+                                                <!-- Modal -->
+                                                <div id="myModal" class="modal fade" role="dialog">
+                                                <div class="modal-dialog">
+
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title">You applied</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p> Thanks for applying, we will let you know if you were chosen for the job</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                    </div>
+
+                                                </div>
+                                                </div>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -424,3 +448,12 @@
 </body>
 
 </html>
+<script>
+var valor = true
+function FbotonOn() {
+  var uno = document.getElementById('botonOn');
+  if (uno.innerHTML == 'Apply') 
+      uno.innerHTML = 'Applied';
+}
+
+</script>

@@ -58,7 +58,24 @@ class Employer extends CI_Controller
 
     public function indexUser($id_usu)
     {
+        $this->load->model('employer_model');
+
         $employer = $this->employer_model->getPost($id_usu);
+
+        if (isset($_REQUEST['guardar'])) {
+            $save = array(
+                'name1Employer' =>  $this->input->post('name1Employer'),
+                'lastname2Employer' =>  $this->input->post('lastname2Employer'),
+                'name2Employer' =>  $this->input->post('name2Employer'),
+                'lastname1Employer' =>  $this->input->post('lastname1Employer'),
+                'phoneEmployer' =>  $this->input->post('phoneEmployer'),
+                'adressEmployer' =>  $this->input->post('adressEmployer'),
+                'mailEmployer' =>  $this->input->post('mailEmployer')
+            );
+            $this->employer_model->modificarEmployer($id_usu, $save);
+            $employer = $this->employer_model->getEmployer($id_usu);
+        }
+
         $this->load->view('employer_user', compact('employer'));
     }
 
