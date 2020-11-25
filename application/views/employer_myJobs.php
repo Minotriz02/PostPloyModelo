@@ -134,164 +134,44 @@
                           Title job
                         </th>
                         <th>
-                          Potential employees
-
-                        </th>
-                        <th>
                           Description
                         </th>
                         <th class="text-center">
                           Salary
                         </th>
+                        <th>
+                          Potential employees
+
+                        </th>
                       </tr>
                     </thead>
                     <tbody>
+                    <?php foreach ($myjobs as $myj) { ?>
                       <tr>
                         <td>
-                          Clean a house
+                          <?php echo $myj->titleJob;?>
                         </td>
                         <td>
-                          <ul>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                          </ul>
-                        </td>
-                        <td>
-                          Job's description
+                          <?php echo $myj->descriptionJob;?>
                         </td>
                         <td class="text-center">
-                          15000 COP
+                          <?php echo $myj->payForJob; ?>
                         </td>
-
-                      </tr>
-                      <tr>
+                        
+                      
                         <td>
-                          Clean a house
-                        </td>
-                        <td>
+                        <?php foreach ($applicants as $aplcnts) { ?>
                           <ul>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
+                            <li><a href="javascript:void(0)"> <?php echo $aplcnts->name1Employee;?> <?php echo $aplcnts->lastname1Employee;?></a></li>
                           </ul>
-                        </td>
-                        <td>
-                          Job's description
-                        </td>
-                        <td class="text-center">
-                          15000 COP
-                        </td>
-
-                      </tr>
-                      <tr>
-                        <td>
-                          Clean a house
-                        </td>
-                        <td>
-                          <ul>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                          </ul>
-                        </td>
-                        <td>
-                          Job's description
-                        </td>
-                        <td class="text-center">
-                          15000 COP
-                        </td>
-
-                      </tr>
-                      <tr>
-                        <td>
-                          Clean a house
-                        </td>
-                        <td>
-                          <ul>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                          </ul>
-                        </td>
-                        <td>
-                          Job's description
-                        </td>
-                        <td class="text-center">
-                          15000 COP
-                        </td>
-
-                      </tr>
-                      <tr>
-                        <td>
-                          Clean a house
-                        </td>
-                        <td>
-                          <ul>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                          </ul>
-                        </td>
-                        <td>
-                          Job's description
-                        </td>
-                        <td class="text-center">
-                          15000 COP
-                        </td>
-
-                      </tr>
-                      <tr>
-                        <td>
-                          Clean a house
-                        </td>
-                        <td>
-                          <ul>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                          </ul>
-                        </td>
-                        <td>
-                          Job's description
-                        </td>
-                        <td class="text-center">
-                          15000 COP
-                        </td>
-
-                      </tr>
-                      <tr>
-                        <td>
-                          Clean a house
-                        </td>
-                        <td>
-                          <ul>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                            <li><a href="javascript:void(0)"> Carlos Muñoz</a></li>
-                          </ul>
-                        </td>
-                        <td>
-                          Job's description
-                        </td>
-                        <td class="text-center">
-                          15000 COP
+                          <?php
+                             }
+                          ?>
                         </td>
                       </tr>
+                      <?php
+                        }
+                      ?>
                     </tbody>
                   </table>
                 </div>

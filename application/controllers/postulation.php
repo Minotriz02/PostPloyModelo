@@ -7,5 +7,7 @@ class Postulation extends CI_Controller
         parent::__construct();
         $this->load->model("postulation_model");
         $this->load->helper(array('form', 'url'));
-    }  
+    } 
+    
+    
 }

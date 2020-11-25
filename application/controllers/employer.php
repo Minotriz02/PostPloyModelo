@@ -81,8 +81,20 @@ class Employer extends CI_Controller
 
     public function indexMyJobs($id_usu)
     {
-        $employer = $this->employer_model->getPost($id_usu);
-        $this->load->view('employer_myJobs', compact('employer'));
+        
+        $this->load->model("job_offer_model");
+        $joffers= $this->job_offer_model->getJobOffers();
+        foreach($joffers as $job){
+            $idjob=$job->idJob;
+            $applicants=$this->job_offer_model->getApplicants($id_usu,$idjob);
+        }
+        $data = array(
+            'employer' => $this->employer_model->getPost($id_usu),
+            'myjobs' => $this->job_offer_model->myJobsEmployer($id_usu),
+            'applicants' => $applicants
+        );
+        //$employer = $this->employer_model->getPost($id_usu);
+        $this->load->view('employer_myJobs', $data);
     }
 
     public function salirSesion()

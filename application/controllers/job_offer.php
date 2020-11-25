@@ -11,11 +11,34 @@ class Job_offer extends CI_Controller
 
     public function indexOffer($id_usu)
     {
-        $this->load->model("employee_model");
+        $this->load->model('employee_model');
+        $this->load->model('postulation_model');
+
+        $employee = $this->employee_model->getEmployee($id_usu);
+        $joffers= $this->job_offer_model->getJobOffers();
+
+        foreach($joffers as $jof){
+            $idtrabajo=$jof->idJob;
+            $idemployer=$jof->idCEmployerAccountf;
+            if (isset($_REQUEST[$idtrabajo])) {
+                //die($idtrabajo);
+                $save = array(
+                    'idJob' =>  $idtrabajo,
+                    'idCEmployerAccountf' =>  $this->input->post('idCEmployerAccountf')
+                );
+                $this->postulation_model->createPostulation($id_usu, $save);
+            }
+        }
+
+        
         $data=array(
             'employee'=> $this->employee_model->getEmployee($id_usu),
             'joffers'=> $this->job_offer_model->getJobOffers()
         );
         $this->load->view('job_Offers',$data);
     }
+
+    
+
+
 }

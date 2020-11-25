@@ -116,6 +116,7 @@
 
             <!-- End Navbar -->
             <div class="content">
+            <form method="POST">
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
                         <div class="card ">
@@ -146,7 +147,9 @@
                                         </thead>
                                         <tbody>
                                             <?php foreach ($joffers as $offers) { ?>
-                                                <tr>
+                                                <tr class="form-group">
+                                                    <input id="idJob" name="idJob" type="hidden" value="<?php echo $offers->idJob?>">
+                                                    <input id="idCEmployerAccountf" name="idCEmployerAccountf" type="hidden" value="<?php echo $offers->idCEmployerAccountf?>">
                                                     <td>
                                                         <?php echo $offers->titleJob; ?>
                                                     </td>
@@ -160,7 +163,9 @@
                                                         <?php echo $offers->payForJob; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                        <button type="submit" id="botonOn" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);" data-toggle="modal" data-target="#myModal" onclick="FbotonOn()">Apply</button>
+                                                        <form method=POST>
+                                                        <button type="submit" id="<?php echo $offers->idJob?>" name="<?php echo $offers->idJob?>" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);" data-toggle="modal" data-target="#myModal" onclick="FbotonOn()">Apply</button>
+                                                        </form>
                                                         <!-- Modal -->
                                                         <div id="myModal" class="modal fade" role="dialog">
                                                             <div class="modal-dialog">
@@ -192,7 +197,9 @@
                         </div>
                     </div>
                 </div>
+            </form>
             </div>
+
             <footer class="footer">
                 <div class="container-fluid">
                     <ul class="nav">
@@ -344,23 +351,10 @@
             });
     </script>
     <script>
-        var valor = true
-
-        function FbotonOn() {
-<<<<<<< HEAD
-        val elementList = $(".botonOn");
-        for (var i = 1; i <= list.length; i++) {
-            elementList[i].attr("id", "botonOn" + i);
-         
-        var uno = document.getElementById(elementList[i]);
-        if (uno.innerHTML == 'Apply') 
-            uno.innerHTML = 'Applied';
-=======
-            var uno = document.getElementById('botonOn');
+        function FbotonOn(id) {
+            var uno = document.getElementById(id);
             if (uno.innerHTML == 'Apply')
                 uno.innerHTML = 'Applied';
->>>>>>> a327e3aec1a481f3190cd744ac0bd787eb6b29fe
-        }
         }
     </script>
 </body>
