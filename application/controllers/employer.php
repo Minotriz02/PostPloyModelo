@@ -51,8 +51,8 @@ class Employer extends CI_Controller
                 if ($option == 3) {
                     $resultado = $q->result();
                     foreach ($resultado as $emp) {
-                        echo $emp->idModerator ;
-                        redirect('moderator/indexDash/' . $emp->idModerator );
+                        echo $emp->idModerator;
+                        redirect('moderator/indexDash/' . $emp->idModerator);
                     }
                 }
             } else {
@@ -62,7 +62,7 @@ class Employer extends CI_Controller
 
         $this->load->view('login');
     }
-    
+
     public function indexDash($id_usu)
     {
         $employer = $this->employer_model->getPost($id_usu);
@@ -83,7 +83,6 @@ class Employer extends CI_Controller
             $this->job_offer_model->agregarTrabajo($save);
             $employer = $this->employer_model->getEmployer($id_usu);
         }
-
     }
 
     public function indexUser($id_usu)
@@ -91,6 +90,7 @@ class Employer extends CI_Controller
         $this->load->model('employer_model');
 
         $employer = $this->employer_model->getPost($id_usu);
+
 
         if (isset($_REQUEST['guardar'])) {
             $save = array(

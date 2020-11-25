@@ -20,6 +20,25 @@ class Employee_model extends CI_Model
         return $query->result();
     }
 
+    public function getAllEmployee()
+    {
+        $query = $this->db->get('employee_view');
+        return $query->result();
+    }
+
+    public function getAcceptAllEmployee()
+    {
+        $this->db->where('checkEmployee', 1);
+        $query = $this->db->get('employee_view');
+        return $query->result();
+    }
+
+    public function getNoAcceptAllEmployee()
+    {
+        $this->db->where('checkEmployee', 0);
+        $query = $this->db->get('employee_view');
+        return $query->result();
+    }
 
     public function iniciarSesion($correoF, $passF)
     {

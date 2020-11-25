@@ -160,7 +160,7 @@
                                                         <?php echo $offers->payForJob; ?>
                                                     </td>
                                                     <td class="text-center">
-                                                    <button type="submit" id="<?php echo $offers->idJob; ?>" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);" data-toggle="modal" data-target="#myModal" onclick="FbotonOn(id)">Apply</button>
+                                                        <button type="submit" id="<?php echo $offers->idJob; ?>" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);" data-toggle="modal" data-target="#myModal" onclick="FbotonOn(id)">Apply</button>
                                                         <!-- Modal -->
                                                         <div id="myModal" class="modal fade" role="dialog">
                                                             <div class="modal-dialog">

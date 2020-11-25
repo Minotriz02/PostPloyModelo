@@ -51,8 +51,8 @@ class Employee extends CI_Controller
                 if ($option == 3) {
                     $resultado = $q->result();
                     foreach ($resultado as $emp) {
-                        echo $emp->idModerator ;
-                        redirect('moderator/indexDash/' . $emp->idModerator );
+                        echo $emp->idModerator;
+                        redirect('moderator/indexDash/' . $emp->idModerator);
                     }
                 }
             } else {

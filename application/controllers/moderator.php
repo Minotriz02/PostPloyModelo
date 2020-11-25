@@ -86,14 +86,38 @@ class Moderator extends CI_Controller
 
     public function indexCheckEmployee($id_usu)
     {
-        $moderator = $this->moderator_model->getModerator($id_usu);
-        $this->load->view('moderator_checkEm', compact('moderator'));
+        $this->load->model("employee_model");
+        $employee = $this->employee_model->getNoAcceptAllEmployee();
+        
+        foreach ($employee as $em) {
+            $id= $em->idAccountEmployee;
+            if (isset($_REQUEST[$id])){
+                $this->moderator_model->aceptarEmployee($id);
+            }
+        }
+        $data = array(
+            'moderator' => $this->moderator_model->getModerator($id_usu),
+            'employee' => $this->employee_model->getNoAcceptAllEmployee()
+        );
+        $this->load->view('moderator_checkEm', $data);
     }
 
     public function indexCheckJobs($id_usu)
     {
-        $moderator = $this->moderator_model->getModerator($id_usu);
-        $this->load->view('moderator_checkJobs', compact('moderator'));
+        $this->load->model("job_offer_model");
+        $joffers = $this->job_offer_model->getNoAcceptJobOffers();
+        
+        foreach ($joffers as $jf) {
+            $id= $jf->idJob;
+            if (isset($_REQUEST[$id])){
+                $this->moderator_model->aceptarJobs($id);
+            }
+        }
+        $data = array(
+            'moderator' => $this->moderator_model->getModerator($id_usu),
+            'joffers' => $this->job_offer_model->getNoAcceptJobOffers()
+        );
+        $this->load->view('moderator_checkJobs', $data);
     }
 
     public function indexUser($id_usu)

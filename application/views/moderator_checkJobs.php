@@ -43,7 +43,7 @@
                             <p>Postploy</p>
                         </a>
                     </li>
-                    <li >
+                    <li>
                         <a href="<?= base_url() ?>index.php/moderator/indexCheckEmployee/<?php foreach ($moderator as $emp) {
                                                                                                 echo $emp->idModerator;
                                                                                             }
@@ -54,9 +54,9 @@
                     </li>
                     <li class="active ">
                         <a href="<?= base_url() ?>index.php/moderator/indexCheckJobs/<?php foreach ($moderator as $emp) {
-                                                                                        echo $emp->idModerator;
-                                                                                    }
-                                                                                    ?>">
+                                                                                            echo $emp->idModerator;
+                                                                                        }
+                                                                                        ?>">
                             <i class="tim-icons icon-paper"></i>
                             <p>Check Jobs</p>
                         </a>
@@ -136,13 +136,13 @@
                                                     Title
                                                 </th>
                                                 <th>
+                                                    Category
+                                                </th>
+                                                <th>
                                                     Description
                                                 </th>
                                                 <th>
-                                                   Pay for Job
-                                                </th>
-                                                <th class="text-center">
-                                                    Time required
+                                                    Pay for Job
                                                 </th>
                                                 <th class="text-center">
                                                     Button
@@ -150,43 +150,47 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    Carlos Martinez
-                                                </td>
-                                                <td>
-                                                    1231442
-                                                </td>
-                                                <td>
-                                                    das@gmail.com
-                                                </td>
-                                                <td class="text-center">
-                                                    Cra 34 #34-12
-                                                </td>
-                                                <td class="text-center">
-                                                    <button type="submit" id="botonOn" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);" data-toggle="modal" data-target="#myModal" onclick="FbotonOn()">Accept</button>
-                                                    <!-- Modal -->
-                                                    <div id="myModal" class="modal fade" role="dialog">
-                                                        <div class="modal-dialog">
+                                            <?php foreach ($joffers as $offers) { ?>
+                                                <tr>
+                                                    <td>
+                                                        <?php echo $offers->titleJob; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $offers->nameCategory; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $offers->descriptionJob; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <?php echo $offers->payForJob; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <form method="POST">
+                                                            <button type="submit" id="<?php echo $offers->idJob; ?>" name="<?php echo $offers->idJob; ?>" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);" data-toggle="modal" data-target="#myModal" onclick="FbotonOn(id)">Accept</button>
+                                                        </form>
+                                                        <!-- Modal -->
+                                                        <div id="myModal" class="modal fade" role="dialog">
+                                                            <div class="modal-dialog">
 
-                                                            <!-- Modal content-->
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                    <h4 class="modal-title">Accepted</h4>
+                                                                <!-- Modal content-->
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <button type="button" class="clo    se" data-dismiss="modal">&times;</button>
+                                                                        <h4 class="modal-title">Accepted</h4>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <p> Great, now this job will be visibe for all</p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="modal-body">
-                                                                    <p> Thanks for applying, we will let you know if you were chosen for the job</p>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                                </div>
+
                                                             </div>
-
                                                         </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -346,12 +350,10 @@
             });
     </script>
     <script>
-        var valor = true
-
-        function FbotonOn() {
-            var uno = document.getElementById('botonOn');
-            if (uno.innerHTML == 'Apply')
-                uno.innerHTML = 'Applied';
+        function FbotonOn(id) {
+            var uno = document.getElementById(id);
+            if (uno.innerHTML == 'Accept')
+                uno.innerHTML = 'Accepted';
         }
     </script>
 </body>

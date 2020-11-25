@@ -12,7 +12,7 @@ class Moderator_model extends CI_Model
         $idEmployee = $this->db->insert_id();
         return $idEmployee;
     }
-    
+
     public function getModerator($id)
     {
         $this->db->where('idModerator', $id);
@@ -42,6 +42,18 @@ class Moderator_model extends CI_Model
         $mailModerator = $data['mailModerator'];
         $query = "UPDATE moderators SET moderatorAccount = '$moderatorAccount', moderatorPhoneNumber = '$moderatorPhoneNumber', mailModerator = '$mailModerator'
                                                WHERE idModerator  = $idModerator";
+        $this->db->query($query);
+    }
+
+    public function aceptarEmployee($idEmployee)
+    {
+        $query = "UPDATE employee_accounts SET checkEmployee = 1 WHERE idAccountEmployee = $idEmployee";
+        $this->db->query($query);
+    }
+
+    public function aceptarJobs($idJob)
+    {
+        $query = "UPDATE job_offers SET checkJob = 1 WHERE idJob = $idJob";
         $this->db->query($query);
     }
 }
