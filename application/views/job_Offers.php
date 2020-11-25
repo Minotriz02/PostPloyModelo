@@ -44,7 +44,7 @@
                         </a>
                     </li>
                     <li class="active ">
-                        <a href="<?= base_url()?>index.php/employee/indexOffer/<?php foreach($employee as $emp){
+                        <a href="<?= base_url()?>index.php/job_offer/indexOffer/<?php foreach($employee as $emp){
                                                                             echo $emp->idAccountEmployee;
                                                                           }
                                                                     ?>">
@@ -143,125 +143,46 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                        <?php foreach($joffers as $offers){ ?>
                                             <tr>
                                                 <td>
-                                                    Clean a house
+                                                <?php echo $offers->titleJob;?>
                                                 </td>
                                                 <td>
-                                                    Clean
+                                                <?php echo $offers->nameCategory;?>
                                                 </td>
                                                 <td>
-                                                    Job's description
+                                                <?php echo $offers->descriptionJob;?>
                                                 </td>
                                                 <td class="text-center">
-                                                    15000 COP
+                                                <?php echo $offers->payForJob;?>
                                                 </td>
                                                 <td class="text-center">
-                                                    <button type="submit" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);">Apply</button>
+                                                <button type="submit" id="botonOn" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);"data-toggle="modal" data-target="#myModal" 
+                                                    onclick="FbotonOn()">Apply</button>
+                                                <!-- Modal -->
+                                                <div id="myModal" class="modal fade" role="dialog">
+                                                <div class="modal-dialog">
+
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title">You applied</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p> Thanks for applying, we will let you know if you were chosen for the job</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                    </div>
+
+                                                </div>
+                                                </div>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    Clean a house
-                                                </td>
-                                                <td>
-                                                    Clean
-                                                </td>
-                                                <td>
-                                                    Job's description
-                                                </td>
-                                                <td class="text-center">
-                                                    15000 COP
-                                                </td>
-                                                <td class="text-center">
-                                                    <button type="submit" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);">Apply</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Clean a house
-                                                </td>
-                                                <td>
-                                                    Clean
-                                                </td>
-                                                <td>
-                                                    Job's description
-                                                </td>
-                                                <td class="text-center">
-                                                    15000 COP
-                                                </td>
-                                                <td class="text-center">
-                                                    <button type="submit" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);">Apply</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Clean a house
-                                                </td>
-                                                <td>
-                                                    Clean
-                                                </td>
-                                                <td>
-                                                    Job's description
-                                                </td>
-                                                <td class="text-center">
-                                                    15000 COP
-                                                </td>
-                                                <td class="text-center">
-                                                    <button type="submit" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);">Apply</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Clean a house
-                                                </td>
-                                                <td>
-                                                    Clean
-                                                </td>
-                                                <td>
-                                                    Job's description
-                                                </td>
-                                                <td class="text-center">
-                                                    15000 COP
-                                                </td>
-                                                <td class="text-center">
-                                                    <button type="submit" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);">Apply</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Clean a house
-                                                </td>
-                                                <td>
-                                                    Clean
-                                                </td>
-                                                <td>
-                                                    Job's description
-                                                </td>
-                                                <td class="text-center">
-                                                    15000 COP
-                                                </td>
-                                                <td class="text-center">
-                                                    <button type="submit" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);">Apply</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    Clean a house
-                                                </td>
-                                                <td>
-                                                    Clean
-                                                </td>
-                                                <td>
-                                                    Job's description
-                                                </td>
-                                                <td class="text-center">
-                                                    15000 COP
-                                                </td>
-                                                <td class="text-center">
-                                                    <button type="submit" class="btn btn-primary log" style="background: linear-gradient(0deg, #4a40d8 0%, #4ea4e1 100%);">Apply</button>
-                                                </td>
-                                            </tr>
+                                        <?php }?>
 
                                         </tbody>
                                     </table>
@@ -420,6 +341,14 @@
                 token: "ee6fab19c5a04ac1a32a645abde4613a",
                 application: "black-dashboard-free"
             });
+    </script>
+    <script>
+        var valor = true
+        function FbotonOn() {
+        var uno = document.getElementById('botonOn');
+        if (uno.innerHTML == 'Apply') 
+            uno.innerHTML = 'Applied';
+        }
     </script>
 </body>
 

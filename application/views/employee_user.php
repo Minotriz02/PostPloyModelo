@@ -44,7 +44,7 @@
             </a>
           </li>
           <li>
-            <a href="<?= base_url()?>index.php/employee/indexOffer/<?php foreach($employee as $emp){
+            <a href="<?= base_url()?>index.php/job_offer/indexOffer/<?php foreach($employee as $emp){
                                                                             echo $emp->idAccountEmployee;
                                                                           }
                                                                     ?>">
