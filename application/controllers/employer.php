@@ -96,7 +96,7 @@ class Employer extends CI_Controller
         //$employer = $this->employer_model->getPost($id_usu);
         $this->load->view('employer_myJobs', $data);
     }
-
+    
     public function salirSesion()
     {
         $this->load->view('logout');

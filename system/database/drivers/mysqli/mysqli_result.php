@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CodeIgniter
  *
@@ -35,7 +36,7 @@
  * @since	Version 1.3.0
  * @filesource
  */
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
  * MySQLi Result Class
@@ -48,7 +49,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/database/
  */
-class CI_DB_mysqli_result extends CI_DB_result {
+class CI_DB_mysqli_result extends CI_DB_result
+{
 
 	/**
 	 * Number of rows in the result set
@@ -87,8 +89,7 @@ class CI_DB_mysqli_result extends CI_DB_result {
 	{
 		$field_names = array();
 		$this->result_id->field_seek(0);
-		while ($field = $this->result_id->fetch_field())
-		{
+		while ($field = $this->result_id->fetch_field()) {
 			$field_names[] = $field->name;
 		}
 
@@ -108,8 +109,7 @@ class CI_DB_mysqli_result extends CI_DB_result {
 	{
 		$retval = array();
 		$field_data = $this->result_id->fetch_fields();
-		for ($i = 0, $c = count($field_data); $i < $c; $i++)
-		{
+		for ($i = 0, $c = count($field_data); $i < $c; $i++) {
 			$retval[$i]			= new stdClass();
 			$retval[$i]->name		= $field_data[$i]->name;
 			$retval[$i]->type		= static::_get_field_type($field_data[$i]->type);
@@ -136,7 +136,7 @@ class CI_DB_mysqli_result extends CI_DB_result {
 	private static function _get_field_type($type)
 	{
 		static $map;
-		isset($map) OR $map = array(
+		isset($map) or $map = array(
 			MYSQLI_TYPE_DECIMAL     => 'decimal',
 			MYSQLI_TYPE_BIT         => 'bit',
 			MYSQLI_TYPE_TINY        => 'tinyint',
@@ -176,8 +176,7 @@ class CI_DB_mysqli_result extends CI_DB_result {
 	 */
 	public function free_result()
 	{
-		if (is_object($this->result_id))
-		{
+		if (is_object($this->result_id)) {
 			$this->result_id->free();
 			$this->result_id = FALSE;
 		}
@@ -229,4 +228,10 @@ class CI_DB_mysqli_result extends CI_DB_result {
 		return $this->result_id->fetch_object($class_name);
 	}
 
+	function next_result()
+	{
+		if (is_object($this->conn_id)) {
+			return mysqli_next_result($this->conn_id);
+		}
+	}
 }

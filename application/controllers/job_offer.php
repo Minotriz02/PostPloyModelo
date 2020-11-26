@@ -15,7 +15,7 @@ class Job_offer extends CI_Controller
         $this->load->model('postulation_model');
 
         $employee = $this->employee_model->getEmployee($id_usu);
-        $joffers= $this->job_offer_model->getJobOffers();
+        $joffers= $this->job_offer_model->getAcceptNoApplyJobOffers();
 
         foreach($joffers as $jof){
             $idtrabajo=$jof->idJob;
@@ -24,7 +24,7 @@ class Job_offer extends CI_Controller
                 //die($idtrabajo);
                 $save = array(
                     'idJob' =>  $idtrabajo,
-                    'idCEmployerAccountf' =>  $this->input->post('idCEmployerAccountf')
+                    'idCEmployerAccountf' =>  $idemployer
                 );
                 $this->postulation_model->createPostulation($id_usu, $save);
             }
@@ -33,7 +33,7 @@ class Job_offer extends CI_Controller
         
         $data=array(
             'employee'=> $this->employee_model->getEmployee($id_usu),
-            'joffers'=> $this->job_offer_model->getJobOffers()
+            'joffers'=> $this->job_offer_model->getAcceptNoApplyJobOffers()
         );
         $this->load->view('job_Offers',$data);
     }

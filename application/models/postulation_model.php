@@ -19,15 +19,15 @@ class Postulation_model extends CI_Model{
         $idJob = $data['idJob'];
         $idCEmployerAccountf = $data['idCEmployerAccountf'];
         //$insert = array(
-            //'idAccountEmployeef' => $idemployee,
-            //'idJobf' => $data['idJob'],
-            //'idCEmployerAccountf2' => $data['idCEmployerAccountf'],
-            //'checkPostulation' => 0
+        //    'idAccountEmployeef' => $idemployee,
+        //    'idJobf' => $idJob,
+        //    'idCEmployerAccountf2' => $idCEmployerAccountf,
+        //    'checkPostulation' => 0
         //);
         //$this->db->insert('postulations', $insert);
-        $query = $this->db->query("insert into postulations (idAccountEmployeef,idJobf,idCEmployerAccountf2,textPostulation,dateEnd,checkPostulation) 
-        values (".$idemployee.",".$idJob.",".$idCEmployerAccountf.",'test','2020-11-24 12:34:12',0)");
-        return $query->result();
+        $this->db->query("insert into postulations (idAccountEmployeef,idJobf,idCEmployerAccountf2,dateEnd,checkPostulation) 
+        values (".$idemployee.",".$idJob.",".$idCEmployerAccountf.",'2020-11-24 12:34:12',0)");
+        //return $query->result();
 
     }
 }

@@ -227,7 +227,7 @@
                       </h5>
                     </a>
                     <p class="description">
-                      Employee
+                      Employer
                     </p>
                   </div>
                 </p>
