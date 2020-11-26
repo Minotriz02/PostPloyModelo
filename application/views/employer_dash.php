@@ -159,7 +159,7 @@ session_start();
               <div class="typography-line">
                 <span>Jobs done: </span>
                 <p>
-                  10
+                
                 </p>
               </div>
               <div class="typography-line">

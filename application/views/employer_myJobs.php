@@ -146,27 +146,25 @@
                       </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($myjobs as $myj) { ?>
+                    <?php foreach ($applicants as $aplcnts) { ?>
                       <tr>
                         <td>
-                          <?php echo $myj->titleJob;?>
+                          <?php echo $aplcnts->titleJob;?>
                         </td>
                         <td>
-                          <?php echo $myj->descriptionJob;?>
+                          <?php echo $aplcnts->descriptionJob;?>
                         </td>
                         <td class="text-center">
-                          <?php echo $myj->payForJob; ?>
+                          <?php echo $aplcnts->payForJob; ?>
                         </td>
                         
                       
                         <td>
-                        <?php foreach ($applicants as $aplcnts) { ?>
+                        
                           <ul>
                             <li><a href="javascript:void(0)"> <?php echo $aplcnts->name1Employee;?> <?php echo $aplcnts->lastname1Employee;?></a></li>
                           </ul>
-                          <?php
-                             }
-                          ?>
+                          
                         </td>
                       </tr>
                       <?php

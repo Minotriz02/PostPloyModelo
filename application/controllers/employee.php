@@ -72,11 +72,14 @@ class Employee extends CI_Controller
     {
         $this->load->model('jobdone_model');
         $this->load->model('postulation_model');
+        $this->load->model('ranking_model');
         $data = array(
             'employee' => $this->employee_model->getEmployee($id_usu),
             'trabajohecho' => $this->jobdone_model->getJobsDone($id_usu),
             'trabajoval' => $this->postulation_model->getWaitJobCheck($id_usu),
-            'trabajonoval' => $this->postulation_model->getWaitJobUnChecked($id_usu)
+            'trabajonoval' => $this->postulation_model->getWaitJobUnChecked($id_usu),
+            'cuenta' => $this->employee_model->getJobsDoneUser($id_usu),
+            'ranking' => $this->ranking_model->getRanking($id_usu)
         );
         $this->load->view('employee_dash', $data);
     }

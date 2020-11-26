@@ -20,6 +20,13 @@ class Employee_model extends CI_Model
         return $query->result();
     }
 
+    public function getJobsDoneUser($id)
+    {
+        $query = $this->db->query("select count(*) as cuenta from jobs_done jd, postulations p where jd.idPostulationf=p.idPostulation and p.checkPostulation=2 and p.idAccountEmployeef=".$id);
+        return $query->row()->cuenta;
+    }
+
+
     public function getAllEmployee()
     {
         $query = $this->db->get('employee_view');

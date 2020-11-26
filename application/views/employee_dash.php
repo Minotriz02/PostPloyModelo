@@ -160,7 +160,9 @@
               <div class="typography-line">
                 <span>Jobs done: </span>
                 <p>
-                  10
+                <?php
+                    echo $cuenta;
+                ?>
                 </p>
               </div>
               <div class="typography-line">
@@ -192,13 +194,9 @@
               <div class="typography-line">
                 <span>Ranking: </span>
                 <p >
-                  3.7
-                </p>
-              </div>
-              <div class="typography-line">
-                <span>Age: </span>
-                <p >
-                  22
+                <?php
+                    echo $ranking;
+                ?>
                 </p>
               </div>
               <?php

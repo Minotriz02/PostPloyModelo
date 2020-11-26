@@ -16,9 +16,11 @@ class Job_offer_model extends CI_Model
         return $query->result();
     }
 
-    public function getApplicants($id_usu,$id_job){
-        $query= $this->db->query("select name1Employee, lastname1Employee from employee_accounts ea, employer_accounts ra, postulations p, job_offers jo
-        where ea.idAccountEmployee=p.idAccountEmployeef and ra.idCEmployerAccount=p.idCEmployerAccountf2 and jo.idJob=p.idJobf and idCEmployerAccount=".$id_usu." and jo.idJob=".$id_job);
+    public function getApplicants($id_usu){
+        //$query= $this->db->query("select name1Employee, lastname1Employee from employee_accounts ea, employer_accounts ra, postulations p, job_offers jo
+        //where ea.idAccountEmployee=p.idAccountEmployeef and ra.idCEmployerAccount=p.idCEmployerAccountf2 and jo.idJob=p.idJobf and idCEmployerAccount=".$id_usu." and jo.idJob=".$id_job);
+        $query=$this->db->query("select jo.titleJob, jo.descriptionJob, jo.payForJob, yee.name1Employee, yee.lastname1Employee from employer_accounts ea, job_offers jo , postulations p RIGHT JOIN employee_accounts yee on yee.idAccountEmployee=p.idAccountEmployeef 
+        where jo.idJob=p.idJobf and ea.idCEmployerAccount=p.idCEmployerAccountf2 and ea.idCEmployerAccount=".$id_usu);
         return $query->result();
     }
 

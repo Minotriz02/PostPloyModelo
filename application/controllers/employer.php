@@ -16,22 +16,16 @@ class Employer extends CI_Controller
             $option = null;
             $this->load->model('employee_model');
             $this->load->model('employer_model');
-            $this->load->model('moderator_model');
             if ($_POST['role'] == 'Employer') {
                 $option = 1;
             } else if ($_POST['role'] == 'Employee') {
                 $option = 2;
-            } else if ($_POST['role'] == 'moderator') {
-                $option = 3;
             }
             if ($option == 1) {
                 $q = $this->employer_model->iniciarSesion($_POST['mailEmployee'], $_POST['passwordEmployee']);
             }
             if ($option == 2) {
                 $q = $this->employee_model->iniciarSesion($_POST['mailEmployee'], $_POST['passwordEmployee']);
-            }
-            if ($option == 3) {
-                $q = $this->moderator_model->iniciarSesion($_POST['mailEmployee'], $_POST['passwordEmployee']);
             }
             if ($q->num_rows() > 0) {
                 if ($option == 1) {
@@ -48,13 +42,6 @@ class Employer extends CI_Controller
                         redirect('employee/indexDash/' . $emp->idAccountEmployee);
                     }
                 }
-                if ($option == 3) {
-                    $resultado = $q->result();
-                    foreach ($resultado as $emp) {
-                        echo $emp->idModerator;
-                        redirect('moderator/indexDash/' . $emp->idModerator);
-                    }
-                }
             } else {
                 redirect('employee');
             }
@@ -62,27 +49,11 @@ class Employer extends CI_Controller
 
         $this->load->view('login');
     }
-
+    
     public function indexDash($id_usu)
     {
         $employer = $this->employer_model->getPost($id_usu);
         $this->load->view('employer_dash', compact('employer'));
-        $this->load->model("job_offer_model");
-
-        if (isset($_REQUEST['añadir'])) {
-            $save = array(
-                'idModeratorf' =>  1,
-                'idCEmployerAccountf' =>  $id_usu,
-                'idCategoryf' =>  $this->input->post('idCategoryf'),
-                'titleJob' =>  $this->input->post('titleJob'),
-                'descriptionJob' =>  $this->input->post('descriptionJob'),
-                'payForJob' =>  $this->input->post('payForJob'),
-                'timeRequired' =>  $this->input->post('timeRequired'),
-                'checkJob' =>  0
-            );
-            $this->job_offer_model->agregarTrabajo($save);
-            $employer = $this->employer_model->getEmployer($id_usu);
-        }
     }
 
     public function indexUser($id_usu)
@@ -90,7 +61,6 @@ class Employer extends CI_Controller
         $this->load->model('employer_model');
 
         $employer = $this->employer_model->getPost($id_usu);
-
 
         if (isset($_REQUEST['guardar'])) {
             $save = array(
@@ -111,7 +81,7 @@ class Employer extends CI_Controller
 
     public function indexMyJobs($id_usu)
     {
-        
+        $applicants="";
         $this->load->model("job_offer_model");
         $joffers= $this->job_offer_model->getJobOffers();
         foreach($joffers as $job){
@@ -121,7 +91,7 @@ class Employer extends CI_Controller
         $data = array(
             'employer' => $this->employer_model->getPost($id_usu),
             'myjobs' => $this->job_offer_model->myJobsEmployer($id_usu),
-            'applicants' => $applicants
+            'applicants' => $this->job_offer_model->getApplicants($id_usu)
         );
         //$employer = $this->employer_model->getPost($id_usu);
         $this->load->view('employer_myJobs', $data);
