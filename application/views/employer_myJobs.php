@@ -12,13 +12,13 @@
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-   <!-- Nucleo Icons -->
-   <link href="<?= base_url()?>/css/nucleo-icons.css" rel="stylesheet" />
+  <!-- Nucleo Icons -->
+  <link href="<?= base_url() ?>/css/nucleo-icons.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link href="<?= base_url()?>/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+  <link href="<?= base_url() ?>/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
 
   <!-- My CSS-->
-  <link href="<?= base_url()?>/css/style_dash.css" rel="stylesheet" />
+  <link href="<?= base_url() ?>/css/style_dash.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -38,27 +38,27 @@
         </div>
         <ul class="nav">
           <li>
-            <a href="<?= base_url()?>index.php/employer/indexDash/<?php foreach($employer as $emp){
-                                                                            echo $emp->idCEmployerAccount;
-                                                                          }
+            <a href="<?= base_url() ?>index.php/employer/indexDash/<?php foreach ($employer as $emp) {
+                                                                      echo $emp->idCEmployerAccount;
+                                                                    }
                                                                     ?>">
               <i class="tim-icons icon-chart-pie-36"></i>
               <p>Postploy</p>
             </a>
           </li>
           <li class="active ">
-            <a href="<?= base_url()?>index.php/employer/indexMyJobs/<?php foreach($employer as $emp){
-                                                                            echo $emp->idCEmployerAccount;
-                                                                          }
-                                                                    ?>">
+            <a href="<?= base_url() ?>index.php/employer/indexMyJobs/<?php foreach ($employer as $emp) {
+                                                                        echo $emp->idCEmployerAccount;
+                                                                      }
+                                                                      ?>">
               <i class="tim-icons icon-single-copy-04"></i>
               <p>My jobs</p>
             </a>
           </li>
           <li>
-            <a href="<?= base_url()?>index.php/employer/indexUser/<?php foreach($employer as $emp){
-                                                                            echo $emp->idCEmployerAccount;
-                                                                          }
+            <a href="<?= base_url() ?>index.php/employer/indexUser/<?php foreach ($employer as $emp) {
+                                                                      echo $emp->idCEmployerAccount;
+                                                                    }
                                                                     ?>">
               <i class="tim-icons icon-single-02"></i>
               <p>User Profile</p>
@@ -91,11 +91,11 @@
               <li class="dropdown nav-item">
                 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                   <div class="photo">
-                    <img src="<?= base_url()?><?php
-                                                foreach($employer as $emp){
+                    <img src="<?= base_url() ?><?php
+                                                foreach ($employer as $emp) {
                                                   echo $emp->photoEmployer;
                                                 }
-                                              ?>" alt="Profile Photo">
+                                                ?>" alt="Profile Photo">
                   </div>
                   <b class="caret d-none d-lg-block d-xl-block"></b>
                   <p class="d-lg-none">
@@ -103,12 +103,12 @@
                   </p>
                 </a>
                 <ul class="dropdown-menu dropdown-navbar">
-                  <li class="nav-link"><a href="<?= base_url()?>index.php/employer/indexUser/<?php foreach($employer as $emp){
-                                                                            echo $emp->idCEmployerAccount ;
-                                                                          }
-                                                                    ?>" class="nav-item dropdown-item">Profile</a></li>
+                  <li class="nav-link"><a href="<?= base_url() ?>index.php/employer/indexUser/<?php foreach ($employer as $emp) {
+                                                                                                echo $emp->idCEmployerAccount;
+                                                                                              }
+                                                                                              ?>" class="nav-item dropdown-item">Profile</a></li>
                   <li class="dropdown-divider"></li>
-                  <li class="nav-link"><a href="<?= base_url()?>index.php/employer/salirSesion" class="nav-item dropdown-item">Log out</a></li>
+                  <li class="nav-link"><a href="<?= base_url() ?>index.php/employer/salirSesion" class="nav-item dropdown-item">Log out</a></li>
                 </ul>
               </li>
               <li class="separator d-lg-none"></li>
@@ -116,7 +116,7 @@
           </div>
         </div>
       </nav>
-   
+
       <!-- End Navbar -->
       <div class="content">
         <div class="row">
@@ -141,36 +141,52 @@
                         </th>
                         <th>
                           Potential employees
-
+                        </th>
+                        <th>
+                          Button
                         </th>
                       </tr>
                     </thead>
                     <tbody>
-                    <?php foreach ($myjobs as $myj) { ?>
-                      <tr>
-                        <td>
-                          <?php echo $myj->titleJob;?>
-                        </td>
-                        <td>
-                          <?php echo $myj->descriptionJob;?>
-                        </td>
-                        <td class="text-center">
-                          <?php echo $myj->payForJob; ?>
-                        </td>
-                        
-                      
-                        <td>
-                        <?php foreach ($applicants as $aplcnts) { ?>
-                          <ul>
-                            <li><a href="javascript:void(0)"> <?php echo $aplcnts->name1Employee;?> <?php echo $aplcnts->lastname1Employee;?></a></li>
-                          </ul>
-                          <?php
-                             }
-                          ?>
-                        </td>
-                      </tr>
+                      <?php foreach ($applicants as $aplcnts) { ?>
+                        <tr>
+                          <td>
+                            <?php echo $aplcnts->titleJob; ?>
+                          </td>
+                          <td>
+                            <?php echo $aplcnts->descriptionJob; ?>
+                          </td>
+                          <td class="text-center">
+                            <?php echo $aplcnts->payForJob; ?>
+                          </td>
+                          <td>
+                            <a type="button" data-toggle="modal" data-target="#myModal" href="javascript:void(0)"> <?php echo $aplcnts->name1Employee; ?> <?php echo $aplcnts->lastname1Employee; ?></a>
+                            <!-- Modal -->
+                            <div id="myModal" class="modal fade" role="dialog">
+                              <div class="modal-dialog">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Info Employee</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <p><?php echo $aplcnts->name1Employee; ?> <?php echo $aplcnts->name2Employee; ?> <?php echo $aplcnts->lastname1Employee; ?> <?php echo $aplcnts->lastname2Employee; ?> </p>
+                                    <div style="height: 100px; width: 100px;" class="photo">
+                                      <img src="<?= base_url() ?><?php echo $aplcnts->photoEmployee; ?>" alt="Profile Photo">
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary">Accept postulation</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Decline </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
                       <?php
-                        }
+                      }
                       ?>
                     </tbody>
                   </table>
@@ -200,18 +216,18 @@
     </div>
   </div>
 
-   <!--   Core JS Files   -->
-   <script src="<?= base_url()?>/js/core/jquery.min.js"></script>
-  <script src="<?= base_url()?>/js/core/popper.min.js"></script>
-  <script src="<?= base_url()?>/js/core/bootstrap.min.js"></script>
-  <script src="<?= base_url()?>/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!--   Core JS Files   -->
+  <script src="<?= base_url() ?>/js/core/jquery.min.js"></script>
+  <script src="<?= base_url() ?>/js/core/popper.min.js"></script>
+  <script src="<?= base_url() ?>/js/core/bootstrap.min.js"></script>
+  <script src="<?= base_url() ?>/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!-- Chart JS -->
-  <script src="<?= base_url()?>/js/plugins/chartjs.min.js"></script>
+  <script src="<?= base_url() ?>/js/plugins/chartjs.min.js"></script>
   <!--  Notifications Plugin    -->
-  <script src="<?= base_url()?>/js/plugins/bootstrap-notify.js"></script>
+  <script src="<?= base_url() ?>/js/plugins/bootstrap-notify.js"></script>
   <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="<?= base_url()?>/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
-  <script src="<?= base_url()?>/demo/demo.js"></script>
+  <script src="<?= base_url() ?>/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
+  <script src="<?= base_url() ?>/demo/demo.js"></script>
   <script>
     window.TrackJS &&
       TrackJS.install({
