@@ -46,6 +46,7 @@ class Employee_model extends CI_Model
 
         $this->db->where('mailEmployee', $correoF);
         $this->db->where('passwordEmployee', $passF);
+        $this->db->where('checkEmployee', 1);
         $q = $this->db->get('employee_accounts');
 
         if ($q->num_rows() > 0) {

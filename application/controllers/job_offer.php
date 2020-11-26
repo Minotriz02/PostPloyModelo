@@ -24,7 +24,7 @@ class Job_offer extends CI_Controller
                 //die($idtrabajo);
                 $save = array(
                     'idJob' =>  $idtrabajo,
-                    'idCEmployerAccountf' =>  $this->input->post('idCEmployerAccountf')
+                    'idCEmployerAccountf' =>  $idemployer
                 );
                 $this->postulation_model->createPostulation($id_usu, $save);
             }
